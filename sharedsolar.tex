@@ -213,57 +213,68 @@ installation site.  This section describes how multiple sites can be
 monitored and administered from a central server.  Communication
 between the customer, the local meter, and the central gateway
 server are implemented using SMS messaging over the GSM network.
-Each local meter site has a GSM modem with SMS capability 
-(Telit GE864 Sparkfun EVK).
-The GSM modem sends data via SMS messages.  SMS has disadvantages but
-is a more mature and reliable technology than GPRS in the areas we
-chose to deploy.
-Messages are 
-relayed from the SMS network to the internet by a computer.  
-This relay task can be performed either in partnership with the local
+GPRS was our initial choice for sending data over the GSM network
+but SMS proved more reliable.  
+The customer communicates via a cellphone, the local meter communicates
+via a GSM modem, and the central gateway server is on the 
+internet.
+For communication to occur between either the customer and the server
+or between the meter and the server, there must be a bridge between
+the GSM network and the internet.
+%Each local meter site has a GSM modem with SMS capability 
+%(Telit GE864 Sparkfun EVK).
+This transfer between the wireless network to the internet can be performed 
+either in partnership with the local
 telecom operator or using custom software and a modem.
-Once the 
-messages are on the internet, they can be sent to a server.  This 
-system's server uses a PostgreSQL database to store information
-about the consumers and their power consumption.  This server has
+In Mali, we initially used a local computer and modem before contracting 
+with the local telecom operator.
+This system's server uses a PostgreSQL database to store information
+received from customers and meters about their power consumption.  
+This server has
 a web interface (Figure \ref{gateway}) that allows for the configuration 
 of consumers' circuits and a visualization of their electricity consumption.
 \note{should we include kannel and SMSC?}
-% communication
+
+% 2.4 transaction descriptions
+\subsection{Transaction and Reporting Descriptions}
+The previous two sections outline the technical description of the system
+while this section outlines the common communications between the elements.
 In this system, there are various types of communications between the 
 three key elements of the system.  These elements are the customer, the 
 meter, and the gateway server.
-% customer initiated
-To add credit to their account, a customer sends a message from their 
-cellphone to the gateway server.  The customer is also able to inquire 
-about their balance.
+% purchase 
+To purchase power, the customer buys a scratch-card from a local vendor.
+Scratch cards are made available locally
+to consumers for purchase in amounts as low as 1 USD.  
+The card is scratched to reveal an authorization code.  
+According to instructions on the scratch card, this code is sent by
+SMS message to the central gateway server where the code is validated.  
+Once validated, the gateway server sends a message to the local meter
+instructing the meter to add the scratch card's credit amount to the 
+customers local account.
+After an acknowledgement from the meter back to the gateway that credit
+has been added, the gateway sends the customer a notice that the transaction
+was successful.
+% consumption
+As energy is consumed, the plug computer reduces the amount of credit
+available to the consumer.  
+When the credit level reaches a lower setpoint, a message is sent
+to the gateway server, which in turn sends a message to the consumer warning them
+that their account is low and should be refilled.  
+% inquiry
+Customers are also able to interact with their account to inquire about their 
+balance.  Customers can send a message to the server which will send a message
+to the customer with their current balance.  
+The customer can also send a message to the gateway requesting that the household's 
+connection be turned on or off.  This allows the user to protect the circuit 
+from unauthorized use during an absence.
 % meter initiated
+The most frequent communication comes from the meter.  
 Communications from the meter are usually hourly reports of consumption
 sent to the gateway server.  The meter also initiates reports of low
 credit or problems with the production system that are sent separate from
 the hourly reports.
 % gateway initiated
-
-% 2.4 transaction descriptions
-\subsection{Transaction Descriptions}
-% purchase 
-To purchase power, the customer buys a scratch-card from a local vendor.
-Scratch cards are available locally
-to consumers for purchase in amounts as low as 1USD.  
-The card is scratched to reveal a authorization code.  This code is sent by
-SMS message to the central gateway server where the code is validate.  
-The local amount of credit at
-the meter is increased and the customer is sent a message indicating that 
-the transaction was successful.  
-% consumption
-As energy is consumed, the credit value is 
-decremented.  When the credit level reaches a lower setpoint, a message is sent
-to the gateway server, which in turn sends a message to the consumer warning them
-that their account is low and should be refilled.  
-% inquiry
-Customers are also able to interact with their account to inquire about their 
-balance.  Another feature is the option for the user to cut off power to the
-household to prevent use when the owner is away.
 
 \section{Discussion}
 
@@ -421,7 +432,7 @@ agricultural monitoring, or other measurements where GSM coverage exists.
 \begin{center}
 \includegraphics[width=\columnwidth]{figures/VillageDiagram.pdf}
 \end{center}
-\caption{VillageDiagram.}
+\caption{VillageDiagram}
 \label{ShedWiringDiagram}
 \end{figure}
 
