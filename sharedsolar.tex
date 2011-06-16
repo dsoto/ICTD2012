@@ -41,7 +41,7 @@ lacks access to electricity.
 \note{cite IEA numbers on rural electrification and cite}
 
 
-% 1.2
+% 1.2 
 % 1.2.1
 The infrastructure associated with grid extension leads to
 high capital costs which must be allocated in large lumps.
@@ -308,8 +308,9 @@ very similar to the existing systems that the villagers had experience with.
 
 \subsection{Consumer Experience}
 % simplification of scratch cards
-An exciting aspect of this work is that it is bringing a grid connection
-to sites that have never had one.  There are interesting observations from
+An exciting aspect of this work is that it is bringing a near-grid-quality
+connection to sites that have never had one.  
+There are interesting observations from
 the introduction.  Although consumers are familiar with mobile phone technology,
 levels of literacy and familiarity varied in the community.  Anecdotally, we 
 noticed a higher level of technological familiarity among the younger members.
@@ -317,34 +318,49 @@ Originally, our instruction cards were too verbose and we simplified them.
 % literacy
 In our first training at the pilot site, we noticed a problem with the 
 literacy level of the customers.  Our instruction cards were verbose and 
-difficult to understand.  We simplified the cards and attempted to mimic 
-the style of cellphone charge cards.
-\note{images of scratch cards?}
+difficult to understand.  We simplified the cards and mimicked 
+the style of cellphone charge cards (Figure \ref{scratchCards}).
+
 % misunderstandings regarding terms of agreement
 % anecdotal evidence of appliance purchase
 
 
 % 3.1 prelim results
 \subsection{Initial Results}
-% power usage
 At the time of writing, two of these systems are installed and providing
-power to customers on a commercial basis.  
-As shown in Figure \note{data graph}, usage in these households is on 
-the order of \note{25Wh} per day corresponding to a few hours of use of
-a high efficiency light bulb.  Customers using televisions show use above
-this level.  The data on usage is sent hourly to the server allowing us
-to learn about consumption during the day.  Averaged profiles of use 
+power to customers on a commercial basis with plans for a total of 
+24 systems in Mali, Uganda, and Tanzania.
+% characterize Mali with income and expenditures
+% power usage
+% power usage low during the day
+Averaged profiles of use 
 (Figure \note{day data graph}) show low to zero consumption during the 
-daytime and most of the demand at night.  Power is used mostly in
-the evenings by the system necessitating battery storage.  
+daytime and most of the demand at night.   
+% higher at night
+Power is used mostly in
+the evenings by the system necessitating battery storage. 
+\note{show averaged load profiles}
+% most common usage at 10-15 watthours
+The histogram in Figure \ref{ml06Histogram} shows that the most frequent
+daily usage is in the range of 10--15 watt-hours.  
+This is equivalent to 2--3 hours of use of the 5W compact fluorescent 
+light bulbs installed with the system.  
+Use above this level usually indicates an appliance such as a television
+or radio.
+% 
+The data on usage is sent hourly to the server allowing us
+to learn about consumption during the day.  
 % uptime
 
 % consumer percent of time with credit
-A prepaid architecture allows the consumer to choose if power is available.
-Consumers accounts remained charged on average \note{80\%} of the time.  
-Some consumers had a 94\% rate of available account credit.  Both heavy and
+%A prepaid architecture allows the consumer to choose if power is available.
+The histogram in Figure \ref{creditHistogram} the number of customers that have
+a given percentage of time with credit available.  
+Most consumers have credit available over 90\% of the time.
+
+\note{ can i show that Both heavy and
 modest consumers of electricity had both high and low fractions of availability
-of credit.  \note{show histogram of this.  plot against average use?}
+of credit. by using a scatterplot of average use and average credit available?}
  
 The average power usage per
 household in these sites is \note{add stats, variation over customers, 
@@ -469,6 +485,30 @@ agricultural monitoring, or other measurements where GSM coverage exists.
 \end{center}
 \caption{Training.}
 \label{training}
+\end{figure}
+
+\begin{figure}[]
+\begin{center}
+\includegraphics[width=\columnwidth]{figures/scratchCards.jpg}
+\end{center}
+\caption{Scratch cards.}
+\label{scratchCards}
+\end{figure}
+
+\begin{figure}[]
+\begin{center}
+\includegraphics[width=\columnwidth]{figures/ml06Histogram.pdf}
+\end{center}
+\caption{Histogram of daily usage}
+\label{ml06Histogram}
+\end{figure}
+
+\begin{figure}[]
+\begin{center}
+\includegraphics[width=\columnwidth]{figures/creditHistogram.pdf}
+\end{center}
+\caption{Histogram of percentage of time customers have available credit.}
+\label{creditHistogram}
 \end{figure}
 
 
