@@ -40,7 +40,6 @@ Currently, a large population in the developing world
 lacks access to electricity.
 \note{cite IEA numbers on rural electrification and cite}
 
-
 % 1.2 
 % 1.2.1
 The infrastructure associated with grid extension leads to
@@ -142,16 +141,17 @@ batteries, a power conditioning unit (PCU), and three custom
 cabinets with metering and communications electronics.
 The structure is approximately 2 meters by 2 meters 
 by 3 meters tall with solar panels mounted on the roof.
-The panels are an 8 panel array of 175 W panels, yielding
-1.4 peak kW.
+The panels are an 8 panel array of 175 W monocrystalline panels, yielding
+1.4 peak kW (Sharp NT-R5E3E 24V 175Wp).
 The array power is received by the power conditioning unit 
-inside the structure.  The PCU is manufactured by Scatec and 
+inside the structure.  The PCU (PPS Enviro Power, Single Phase SOLA ECO Inverter)
 contains a battery charger, an inverter, a maximum power point 
 tracker, and an RS-232 interface for data collection.  
 The inverter supplies power to the system and the 
 customers at 220V and 50Hz.  Nighttime power is delivered to the
 inverter from
-a bank of valve regulated lead acid (VRLA) batteries.  
+a bank of valve regulated lead acid (VRLA) 
+(HBL T Series Tubular Gel VRLA 48V 360Ah) batteries.  
 The output from the inverter is fed into the first of the three custom
 cabinets.  This control enclosure contains communications hardware and
 a plug computer.
@@ -330,44 +330,119 @@ the style of cellphone charge cards (Figure \ref{scratchCards}).
 At the time of writing, two of these systems are installed and providing
 power to customers on a commercial basis with plans for a total of 
 24 systems in Mali, Uganda, and Tanzania.
+These systems provide hourly information about consumption and purchases
+to a central server.
+These results use this server data.
 % characterize Mali with income and expenditures
 % power usage
 % power usage low during the day
-Averaged profiles of use 
-(Figure \note{day data graph}) show low to zero consumption during the 
+By taking multiple days of use and overlaying them we can get an average
+profile of power consumption.
+Figure \ref{averagedAccumulatedEnergy} shows average hourly power readings 
+for a period of one month.
+There is low to zero consumption of electrical power by the consumer during the 
 daytime and most of the demand at night.   
+There is also a small amount of light used in the early morning hours.
 % higher at night
-Power is used mostly in
-the evenings by the system necessitating battery storage. 
-\note{show averaged load profiles}
+This consumption pattern with most energy being consumed in the evening
+necessitates expensive battery storage. 
+
+\begin{figure}[]
+\begin{center}
+\includegraphics[trim = 0in 1.3in 0in 0in, clip, width=\columnwidth]
+                 {figures/averagePower.pdf}
+\end{center}
+\caption{Averaged profile over one month of data.  Each datapoint is the
+average power consumed for that hour over a time period of one month.}
+\label{averagedAccumulatedEnergy}
+\end{figure}
+
 % most common usage at 10-15 watthours
-The histogram in Figure \ref{ml06Histogram} shows that the most frequent
+To get a sense of the daily consumption levels in our Mali pilot sites,
+we plot a histogram (Figure \ref{ml06Histogram}) of the daily 
+power consumed with the frequency being 
+the number of days that power was observed in any household.  
+This data is for one village, Tiby II, in the Tiby cluster in Mali with
+37 households connected.
+
+The histogram shows that the most frequent
 daily usage is in the range of 10--15 watt-hours.  
 This is equivalent to 2--3 hours of use of the 5W compact fluorescent 
 light bulbs installed with the system.  
-Use above this level usually indicates an appliance such as a television
-or radio.
-% 
-The data on usage is sent hourly to the server allowing us
-to learn about consumption during the day.  
+The households that display usage above this level usually own an appliance 
+such as a television or radio.
+\note{need survey data to make this statement}
+
+\begin{figure}[]
+\begin{center}
+\includegraphics[trim = 0in 1.3in 0in 0in, clip, width=\columnwidth]
+                {figures/ml06Histogram.pdf}
+\end{center}
+\caption{Histogram of daily usage.  X axis is the watthour consumption
+in increments of 5 watthours and the Y axis is the number of days of
+this level of consumption.}
+\label{ml06Histogram}
+\end{figure}
+
+Figure \ref{consumptionHistogram} shows the number of customers consuming 
+a given amount of credit monthly.  The exchange rate is approximately 500XCFA to 1USD.
+The most frequent expenditure is from 1USD to 1.5USD.  
+\note{change plot to USD}
+
+\begin{figure}[]
+\begin{center}
+\includegraphics[trim = 0in 1.3in 0in 0in, clip, width=\columnwidth]
+                {figures/consumptionHistogram.pdf}
+\end{center}
+\caption{Histogram of monetary amount consumed per household over one month period.}
+\label{consumptionHistogram}
+\end{figure}
+
 % uptime
 
 % consumer percent of time with credit
 %A prepaid architecture allows the consumer to choose if power is available.
-The histogram in Figure \ref{creditHistogram} the number of customers that have
-a given percentage of time with credit available.  
-Most consumers have credit available over 90\% of the time.
+This architecture for power delivery uses a prepaid model.  
+Customers must maintain a non-zero amount of credit in their accounts in order
+to use electricity.
+The histogram in Figure \ref{creditHistogram} the number of customer households
+that have a given percentage of time with credit available.  
+Over half of the consumers maintain non-zero amounts of credit over 90\% of 
+the time.
 
-\note{ can i show that Both heavy and
-modest consumers of electricity had both high and low fractions of availability
-of credit. by using a scatterplot of average use and average credit available?}
- 
-The average power usage per
-household in these sites is \note{add stats, variation over customers, 
-variation over day, variation over a month}.  \note{add figures
-for consumption}  Consumers are willing to pay costs commensurate with their 
-kerosene costs (\$4/kWh).  At these rates, it is plausible to deploy these
-systems profitably though we have not demonstrated this directly.
+
+\begin{figure}[]
+\begin{center}
+\includegraphics[trim = 0in 1.3in 0in 0in, clip, width=\columnwidth]
+                {figures/creditHistogram.pdf}
+\end{center}
+\caption{Histogram of percentage of time customers have available credit.}
+\label{creditHistogram}
+\end{figure}
+
+To understand if only consumers with higher expenditures on electricity 
+are able to maintain non-zero balances consistently, we plot the fraction of 
+time with credit available against the consumption per household.
+A scatterplot of users plotting consumption against the fraction of time with
+available credit (Figure \ref{scatterCreditTime}
+shows that customers with both high and low expenditures are able
+to keep credit available.
+Those customers with credit available for lower fractions of time had lower 
+monthly expenditures.
+
+\begin{figure}[]
+\begin{center}
+\includegraphics[trim = 0in 1.3in 0in 0in, clip, width=\columnwidth]
+                {figures/scatterCreditTime.pdf}
+\end{center}
+\caption{Scatterplot.  Each point represents a household.  The percentage
+of time that the account has available credit is plotted on the y-axis while
+the monthly consumption in XCFA is plotted on the x-axis.}
+\label{scatterCreditTime}
+\end{figure}
+
+\note{need discussion of costs relative to kerosene or costs outlined in 
+MV surveys}
 
 % 3.2 challenges
 \subsection{Challenges}
@@ -448,7 +523,11 @@ agricultural monitoring, or other measurements where GSM coverage exists.
 \begin{center}
 \includegraphics[width=\columnwidth]{figures/VillageDiagram.pdf}
 \end{center}
-\caption{VillageDiagram}
+\caption{Power Generation and distribution.  
+Power is generated by an array of photovoltaic panels. 
+Output of these panels is used to charge a bank of batteries.
+An inverter is powered by the batteries and power is distributed
+through busbars and meters before distribution to the households.}
 \label{ShedWiringDiagram}
 \end{figure}
 
@@ -473,7 +552,7 @@ agricultural monitoring, or other measurements where GSM coverage exists.
 
 \begin{figure}[]
 \begin{center}
-\includegraphics[width=\columnwidth]{figures/gateway.pdf}
+\includegraphics[width=\columnwidth]{figures/gateway.jpg}
 \end{center}
 \caption{Gateway.}
 \label{gateway}
@@ -495,21 +574,6 @@ agricultural monitoring, or other measurements where GSM coverage exists.
 \label{scratchCards}
 \end{figure}
 
-\begin{figure}[]
-\begin{center}
-\includegraphics[width=\columnwidth]{figures/ml06Histogram.pdf}
-\end{center}
-\caption{Histogram of daily usage}
-\label{ml06Histogram}
-\end{figure}
-
-\begin{figure}[]
-\begin{center}
-\includegraphics[width=\columnwidth]{figures/creditHistogram.pdf}
-\end{center}
-\caption{Histogram of percentage of time customers have available credit.}
-\label{creditHistogram}
-\end{figure}
 
 
 
