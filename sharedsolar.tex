@@ -30,43 +30,44 @@ The architecture seeks to lower operating costs as much as possible.
 % 1.1 scope of rural electricity market
 Modern electricity services are almost absent from rural
 areas of developing countries.
+1.4 billion people lack access to electricity with 85\% of
+them living in rural areas.\cite{WEO2010}
 % 1.1.1 cited benefits of electricity
 Modest levels of electricity bring benefits of clean lighting
 and communication through cellphones.
-At higher levels of electricity, mechanization is possible
-allowing for increased resale value of raw goods.
 % 1.1.2 population without grid access
-Currently, a large population in the developing world 
-lacks access to electricity.
-\note{cite IEA numbers on rural electrification and cite}
+Rural customers gain access to energy services by purchasing
+kerosene and drycell batteries and by paying for battery charging 
+services.
+Survey data in the Millennium Villages show that these expenditures
+are a significant fraction of household spending.\cite{Christine}
+Despite the lack of electricity and the evidence of existing
+expenditures on energy services,
+grid extension has not occurred in many areas.
 
-% 1.2 
-% 1.2.1
-The infrastructure associated with grid extension leads to
-high capital costs which must be allocated in large lumps.
-\note{The per household grid connection cost ranges from
-xxx to xxx, cite{modi infrastructure papers}}
-\cite{ModiGeographyInfrastructure}
+One barrier to grid extension is high cost.
+Grid extension costs can exceed \$2000USD per household.\cite{ModiPlanningKenya}
+Also, grid extension requires capital to be allocated in large
+lump sums since expensive high voltage powerlines must first be brought to remote areas
+before connections can be made.
 Even if the capital cost can be raised and these grids are 
 constructed, there is a significant
 logistical problem in reading meters and collecting tariffs
 in remote locations.
-Without robust payment collection installation costs cannot
-be repaid.
+These visits raise operating and maintenance costs for the installed grids.
+
 % 1.2.2
+
 In the absence of grid connection, electricity consumers use
 batteries, kerosene, and travel to grid connected locations to
 substitute for services that would be delivered by the grid.
-These substitutions are often at a much higher price than grid
-connections in the same country.
+These substitutions are often at a much higher price per unit
+of service than grid
+connections in the same country.\cite{evan mills}
 Chemical energy storage such as kerosene, candles, and dry cell batteries 
 are often used for lighting services.
-These items are available in small purchase quantities.
-While this low purchase price and low investment for lanterns or
-flashlights allows consumers to afford lighting services, the 
-price paid per amount of light delivered is much higher than
-for grid connections and energy efficient light bulbs.
-\note{cite evans numbers and our numbers in a table}
+Kerosene, a very common lighting fuel, has the drawbacks of heat, 
+soot, and fire risk.
 While single-use chemical fuel is often used for lighting services, 
 rechargeable batteries are often used for communication and 
 entertainment purposes such as cellphones and televisions.
@@ -76,7 +77,6 @@ where charging services exist.
 Recharging services for cellphones and lead-acid batteries are
 purchased by consumers are affordable but the cost per unit of 
 electricity is much higher than a grid connection.
-\note{reference table here}
 % 1.2.3
 Wealthy consumers in some markets are able to purchase
 solar home systems that provide modest amounts of convenient
@@ -85,36 +85,55 @@ In Kenya, where there is considerable investment in individual
 solar home systems, these systems are primarily owned by the
 wealthiest individuals.\cite{Jacobson:Connective}
 Users in Bangladesh report that the increased monthly cost
-as well as the single large monthly payment are a hardship.
+as well as the single large monthly payment associated with
+solar home systems are a hardship.
 \cite{Mondal:SHSBangladesh:2011}
 
-% 1.3
-The primary contribution of this project is an architecture
-which lowers the capital barrier of entry to consumers while
-raising the quality of the power service they enjoy.
-In this paper we describe and demonstrate an architecture
-where mini-grid services could be deployed and administrated
-remotely, creating an attractive proposition for a utility.
-This system is a proposal to create robust and autonomous
-microutilities that can be remotely managed by interested
-utilities.
-This architecture is designed to make a solar mini-grid attractive
-to an outside investor.  This creates a situation similar to
-a power-purchase agreement where an outside investor provides the
-capital for solar generation but the power and benefit is consumed
-by a private party that pays for the electricity service.
+In an environment where the common and affordable energy sources have
+many drawbacks and household electricity generation services are 
+out of the reach
+of most consumers, there exists an opportunity to bring a 
+new service model to these areas.
+This project addresses this gap by providing an architecture 
+that can make electricity delivery more feasible.
+By combining distributed generation with cellular communications
+we demonstrate a modular microutility that can deliver power to
+remote locations with robust payment collection.
+% modular system can be deployed one at a time
+Since these are individual modular units, they can be 
+deployed gradually and without the same large lump 
+capital expenditures that a 
+grid extension project would have.
+% remote communications lowers o&m
 By using the telecommunications network available in many rural
-areas of developing countries, a robust autonomous systems can
-be deployed to provide power.
+areas of developing countries, these systems can operate with
+remote supervision and administration.
 With customer billing and monitoring of the system done remotely
 using wireless communications such as SMS, the travel costs
 associated with routinely visiting systems can be avoided.
-If the systems are sufficiently attractive economically, a utility could
-deploy them in areas where grid extension is prohibitively expensive.
-This investment by the utility could make near-grid-quality
-power available to individuals who couldn't afford the upfront
-cost of a solar home system.
+% attractive to investors
+If this architecture were manufactured at a scale that achieved 
+cost-effective prices, it would create an attractive 
+proposition for a utility.
+A utility could
+deploy these systems in areas where grid extension is prohibitively expensive.	
+This creates a situation similar to
+a power-purchase agreement where an outside investor provides the
+capital for solar generation but the power and benefit is consumed
+by a private party that pays for the electricity service.
 
+% data collection provides service to energy researchers
+% data collection for research
+At the same time, this architecture allows us to construct
+a rich data set of
+power consumption after the introduction of near-grid-quality
+power to a previously unelectrified site.
+This data will be of use to researchers and business people 
+trying to understand the energy purchasing patterns in rural 
+unelectrified areas.
+
+
+%----------------------------------------------------------------%
 % 2
 \section{Architecture}
 We have created an architecture which allows for the provision,
