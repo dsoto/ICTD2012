@@ -413,9 +413,9 @@ such as a television or radio.
 \includegraphics[trim = 0in 1.3in 0in 0in, clip, width=\columnwidth]
                 {figures/ml06Histogram.pdf}
 \end{center}
-\caption{Histogram of daily usage.  X axis is the watthour consumption
-in increments of 5 watthours and the Y axis is the number of days of
-this level of consumption.}
+\caption{Histogram of daily consumption.  The watthour consumption of households
+in increments of 5 watthours in plotted on the x-axis.  The y-axis is the number of
+days of where this level of consumption is observed.}
 \label{ml06Histogram}
 \end{figure}
 
@@ -571,8 +571,12 @@ through busbars and meters before distribution to the households.}
 \begin{center}
 \includegraphics[width=\columnwidth]{figures/NetworkDiagram.pdf}
 \end{center}
-\caption{Network.}
-\label{SoftwareDiagram}
+\caption{Diagram of a network of meters and customers administered by a central server.
+Multiple meters communicate via SMS messages that are relayed through a short message
+service center (SMSC).  These messages are received by a server running the Kannel gateway
+software that relays the messages in HTTP format to a server.  Customer messages also
+communicate through SMS and the SMSC before messages are sent to the server.}
+\label{NetworkDiagram}
 \end{figure}
 
 
@@ -580,16 +584,22 @@ through busbars and meters before distribution to the households.}
 \begin{center}
 \includegraphics[width=\columnwidth]{figures/Enclosure.pdf}
 \end{center}
-\caption{Enclosure.}
+\caption{Schematic of the power and information flow in the metering hardware cabinets.
+Power flows from the inverter to a main metering circuit.  The power is then distributed
+by bus bar to up to 20 individual metering and switching circuits.  Information is collected
+from each of these metering and switching circuits via an ethernet network and is aggregated
+on a plug computer.  The plug computer controls the accounting and communication functions
+and communicates with the central server by a GSM modem.}
 \label{Enclosure}
 \end{figure}
-
 
 \begin{figure}[]
 \begin{center}
 \includegraphics[width=\columnwidth]{figures/gateway.jpg}
 \end{center}
-\caption{Gateway.}
+\caption{Screen shot of the administration interface.  This web application allows
+the administrator to view the information collected from the installed systems.  Information
+on the household electricity consumption and credit purchases can be viewed.  }
 \label{gateway}
 \end{figure}
 
@@ -597,7 +607,8 @@ through busbars and meters before distribution to the households.}
 \begin{center}
 \includegraphics[width=\columnwidth]{figures/training.jpg}
 \end{center}
-\caption{Training.}
+\caption{Photo of local training session.  Sessions were held to train users on the use
+of mobile phones and scratch cards to purchase electricity.}
 \label{training}
 \end{figure}
 
@@ -605,7 +616,8 @@ through busbars and meters before distribution to the households.}
 \begin{center}
 \includegraphics[width=\columnwidth]{figures/scratchCards.jpg}
 \end{center}
-\caption{Scratch cards.}
+\caption{Scratch cards.  Cards contain a concealed code as well as instructions on the
+use of the account.}
 \label{scratchCards}
 \end{figure}
 
