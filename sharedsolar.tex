@@ -1,30 +1,32 @@
 %\documentclass{article}
-\documentclass[conference]{IEEEtran}
-%\documentclass{sig-alternate}
+%\documentclass[conference]{IEEEtran}
+\documentclass{sig-alternate}
 \usepackage{graphicx}
 \usepackage{color}
 \newcommand{\note}[1]{{\color{red} NOTE: *** #1 ***}}
 \begin{document}
 
 \title{A Prepaid Architecture for Solar Electricity Delivery}
-\author{{Daniel Soto}, Matt Basinger, Vijay Modi}
+%\author{{Daniel Soto}, Matt Basinger, Vijay Modi}
 \date{\today}
 \maketitle
 
 \begin{abstract}
-In this paper we present a prototype model for electricity
-distribution in a rural context.
-We have designed and demonstrated the use of a technology that
-can provide for the metering and switching of electricity.
-This technology uses remote monitoring via SMS mobile networks
-to gain connectivity.
-Leveraging the cellular phone air-time business model, we provide
-scratchcards for a fee which contain codes allowing for the purchase of
-power.
-This architecture allows for the purchase of high quality electricity in
-small purchase amounts, lowering the consumer cost barrier to access of
-high quality electricity.
-The architecture seeks to lower operating costs as much as possible.
+% potential to lower installation and operating costs
+This paper demonstrates a model for electricity
+distribution in a rural context with the potential
+to lower both installation and operating costs below
+what a conventional grid extension would offer.
+The microutility in this paper provides power on a
+pre-paid basis similar to the way cellular phone
+air-time is sold.
+The microutility described below uses the SMS networks
+for communication allowing installation in any place
+within reach of a GSM tower.
+Several of these individual microutilities are monitored
+and administered via a central server.
+These microutilities are currently installed and providing
+power to approximately 60 households in Mali.
 \end{abstract}
 
 \section{Introduction}
@@ -179,7 +181,7 @@ batteries.
 The output from the inverter is fed into the first of the three custom
 cabinets.  This control enclosure contains communications hardware and a
 plug computer.
-As shown in Figure \ref{Enclosure} power enters this control enclosure
+Power enters this control enclosure
 where it is measured to monitor the total power consumption of the
 system.
 The AC power is then distributed from the central control enclosure to
@@ -268,7 +270,7 @@ pre-paid cellular phone air time.
 % purchase
 To purchase power, the customer buys a scratch-card from a local vendor.
 Scratch cards are made available locally to consumers for purchase in
-amounts as low as 1 USD (Figure \ref{scratch card}).
+amounts as low as 1 USD (Figure \ref{scratchCards}).
 The scratch cards contain both instructions on how to recharge the account
 and a concealed authorization code.
 According to instructions on the scratch card, this code is revealed and
@@ -311,102 +313,127 @@ much instantaneous power or consumes too much energy in a 24 hour period.
 The meter also listens for incoming SMS messages from the gateway.
 These messages from the gateway are often diagnostic requests.
 
+
 \section{Discussion}
+At the time of this writing, we have three systems installed in Mali
+serving 49 households with pre-paid electricity.
+One of these systems is near a city and two of the systems are in the
+Tiby Millennium Village.
+This area is well suited for the system since it has
+a plentiful solar resource and though remote, has dense settlement
+patterns that allow for shorter wire distribution lengths.
+
 
 \subsection{Installation}
-The systems discussed here are installed in the Tiby Millennium Village
-in Mali, Africa.  This area is well suited for the system since it has
-a plentiful solar resource and though remote, has dense settlement
-patterns that allow for shorter wire distribution lengths.  Consumers were
+The installation process begins with an assessment of a potential site for
+suitability followed by planning and installation.
+Consumers were
 approached about their willingness to pay a connection fee and a service
-fee for electricity.  Those customers who agreed made an initial deposit
+fee for electricity.
+Those customers who agreed to these fees made an initial deposit
 and were connected.
-The connection fee of 60USD covers a wire from the central meter location
-to the home and internal wiring in the home of two light bulbs and a
-power outlet.  Consumers received training on the use of their cell phone
-to recharge their accounts and inquire about their balances.
-% lack of credit
-During this
-training period we discovered that while people had cellphones, they often
-did not carry a balance on their phones.  To get universal participation
-by cellphone, it is necessary to have a toll-free number for inquiries
-and recharge.
-% SMS usage
-\note{are there statistics about voice vs sms usage}
-We also discovered that villagers in Mali were not as comfortable
-with SMS messaging as we initially assumed.  \note{cite something about
-suitability of voice vs text}  We modified the format of our
-SMS messages to adhere more closely to the messages used by cellphone
-providers for recharge.  Unfortunately, the USSD protocol used by the
-providers was not available to us so we could not create a system that was
-very similar to the existing systems that the villagers had experience with.
+The connection fee of 60 USD covers a wire from the central meter location
+to the home, the internal wiring in the home, and two 5 watt LED light bulbs and a
+power outlet.
+Each customer has a unique wire running from the central meter location to
+the home that is their property and responsibility.
+Wires were primarily run underground in these installations.
+The soft soil made digging trenches for installation more cost-effective than
+installing utility poles.
+Customers were also provided with a card with their account number.
+They were instructed to save this account number since it would be used
+for electricity purchase transactions.
+% what else about the installation?
 
-\subsection{Consumer Experience}
-% simplification of scratch cards
-An exciting aspect of this work is that it is bringing a near-grid-quality
-connection to sites that have never had one.
-There are interesting observations from
-the introduction.  Although consumers are familiar with mobile phone technology,
-levels of literacy and familiarity varied in the community.  Anecdotally, we
-noticed a higher level of technological familiarity among the younger members.
-Originally, our instruction cards were too verbose and we simplified them.
-% literacy
-In our first training at the pilot site, we noticed a problem with the
-literacy level of the customers.  Our instruction cards were verbose and
-difficult to understand.  We simplified the cards and mimicked
-the style of cellphone charge cards (Figure \ref{scratchCards}).
+
+\subsection{Consumer Training}
+Although consumers are familiar with mobile phone technology and the
+purchasing of mobile phone airtime, we conducted trainings to instruct
+consumers on account management.
+These trainings were conducted to be sure that customers knew how to
+purchase credit and inquire into their account using their mobile
+phones.
+Training sessions were conducted in Bambara, the local language, with
+the help of translators.
+% literacy / message simplification
+During the training, customers were provided with scratch cards (Figure
+\ref{scratchCards}) that contained a numeric authorization code and
+instructions for sending the code to the central server for
+validation.
+To purchase credit, the scratch card instructed customers to send a
+short alphabetic command code, followed by their assigned account
+number, followed by the authorization code.
+This scheme was modeled after the purchase of cellphone airtime.
+Customers reported that the combination of numbers and letters was
+cumbersome to enter and that our instruction cards were verbose and
+difficult to understand.
+We also discovered that not all villagers in Mali were not as
+comfortable with SMS messaging as we initially assumed.
+Anecdotally, we noticed a higher level of familiarity with SMS
+among some of the younger members.
+In response to these reports, we modified the format of our SMS messages
+to adhere more closely to the messages used by cellphone providers for
+recharge and eliminated letters from the message formats.
+The most familiar message format is the USSD protocol used by
+cellphone providers for users to manage their accounts.
+Unfortunately, the USSD protocol used by the providers was not available
+to us so we could not create a system that was identical to the existing
+systems that the villagers had experience with.
+% training / toll-free / lack of credit
+In order to purchase credit or inquire about the balance on a customers
+account, an SMS message must be sent.
+During this training period we observed that while most people owned
+cellphones, they often did not carry a balance of usable air-time on
+their phones.
+This validated our choice to provide a toll-free number for SMS messaging.
 
 % misunderstandings regarding terms of agreement
+% these stem from assuming agreement similar to phone agreement
 % anecdotal evidence of appliance purchase
 
 
-% 3.1 prelim results
-\subsection{Initial Results}
-At the time of writing, two of these systems are installed and providing
-power to customers on a commercial basis with plans for a total of
-24 systems in Mali, Uganda, and Tanzania.
-These systems provide hourly information about consumption and purchases
-to a central server.
-These results use this server data.
+\subsection{Electricity Consumption}
+Using the data collected on our server, we can examine the electricity
+consumption patterns of the households participating in the project.
+We start by looking at a typical consumption pattern for households.
 % characterize Mali with income and expenditures
 % power usage
 % power usage low during the day
-By taking multiple days of use and overlaying them we can get an average
-profile of power consumption.
-Figure \ref{averagedAccumulatedEnergy} shows average hourly power readings
-for a period of one month.
-There is low to zero consumption of electrical power by the consumer during the
-daytime and most of the demand at night.
-There is also a small amount of light used in the early morning hours.
-% higher at night
-This consumption pattern with most energy being consumed in the evening
-necessitates expensive battery storage.
+Figure \ref{averagedAccumulatedEnergy} shows the averaged
+hourly power readings over a period of one month.
+Most of the load is at night with a wattage level that is consistent
+with the use of the 5 watt LED light bulb that we provide.
+There is also a small amount of early morning lighting load before sunrise.
+During the day however, there is almost no electricity consumption.
+This pattern necessitates battery storage of the photovoltaic energy
+generated.
 
 \begin{figure}[]
 \begin{center}
 \includegraphics[trim = 0in 1.3in 0in 0in, clip, width=\columnwidth]
                  {figures/averagePower.pdf}
 \end{center}
-\caption{Averaged profile over one month of data.  Each datapoint is the
-average power consumed for that hour over a time period of one month.}
+\caption{Hourly power use averaged over one month of data.  Each datapoint is the
+average power consumed for that hour over a time period of one month.  Error bars
+indicate the standard deviation for the data set.}
 \label{averagedAccumulatedEnergy}
 \end{figure}
 
 % most common usage at 10-15 watthours
 To get a sense of the daily consumption levels in our Mali pilot sites,
 we plot a histogram (Figure \ref{ml06Histogram}) of the daily
-power consumed with the frequency being
+energy consumed with the frequency being
 the number of days that power was observed in any household.
-This data is for one village, Tiby II, in the Tiby cluster in Mali with
-37 households connected.
+This data is for one meter in one village, Tiby II, in the Tiby cluster
+in Mali with 17 households connected.
 
 The histogram shows that the most frequent
 daily usage is in the range of 10--15 watt-hours.
-This is equivalent to 2--3 hours of use of the 5W compact fluorescent
+This is equivalent to 2--3 hours of use of the 5 watt LED
 light bulbs installed with the system.
 The households that display usage above this level usually own an appliance
 such as a television or radio.
-\note{need survey data to make this statement}
+%\note{need survey data with id to make this statement}
 
 \begin{figure}[]
 \begin{center}
@@ -422,7 +449,6 @@ days of where this level of consumption is observed.}
 Figure \ref{consumptionHistogram} shows the number of customers consuming
 a given amount of credit monthly.  The exchange rate is approximately 500XCFA to 1USD.
 The most frequent expenditure is from 1USD to 1.5USD.
-\note{change plot to USD}
 
 \begin{figure}[]
 \begin{center}
@@ -451,7 +477,9 @@ the time.
 \includegraphics[trim = 0in 1.3in 0in 0in, clip, width=\columnwidth]
                 {figures/creditHistogram.pdf}
 \end{center}
-\caption{Histogram of percentage of time customers have available credit.}
+\caption{Histogram of percentage of time customers have a positive non-zero balance
+of available credit in their accounts.  The majority of customers have electricity
+available in their homes over 90\% of the time.}
 \label{creditHistogram}
 \end{figure}
 
@@ -459,7 +487,8 @@ To understand if only consumers with higher expenditures on electricity
 are able to maintain non-zero balances consistently, we plot the fraction of
 time with credit available against the consumption per household.
 A scatterplot of users plotting consumption against the fraction of time with
-available credit (Figure \ref{scatterCreditTime}
+available credit.
+Figure \ref{scatterCreditTime}
 shows that customers with both high and low expenditures are able
 to keep credit available.
 Those customers with credit available for lower fractions of time had lower
@@ -472,12 +501,11 @@ monthly expenditures.
 \end{center}
 \caption{Scatterplot.  Each point represents a household.  The percentage
 of time that the account has available credit is plotted on the y-axis while
-the monthly consumption in XCFA is plotted on the x-axis.}
+the monthly monetary value of electricity consumed in USD is plotted on the x-axis.}
 \label{scatterCreditTime}
 \end{figure}
 
-\note{need discussion of costs relative to kerosene or costs outlined in
-MV surveys}
+%\note{need discussion of costs relative to kerosene or costs outlined in MV surveys}
 
 % 3.2 challenges
 \subsection{Challenges}
@@ -491,7 +519,8 @@ electricity from consumers and requires extra generation costs.
 % two issues: network reliability, modem hangs
 These systems are intended to run uninterrupted and unattended in
 remote locations.  Communication uptime is very important.  We have
-observed problems with network reliability.  These disruptions can
+observed problems with network reliability and latency.
+These disruptions can
 place the modem in an undefined state requiring a reboot.
 Problems with network reliability have prompted us to explore other
 means for information flow in the presence of intermittent connectivity.
@@ -510,11 +539,10 @@ revenue for the utility.  This reduces the risk of one common type of fraud
 and uses social pressure as a deterrent.
 One disadvantage to this approach is the increased cost of distribution.
 A bus distribution scheme would in most cases lower the total length of
-cable needed.  However, long sections of accessible utility owned cable
-invite unauthorized splicing.
+cable needed.  However, long sections of above-ground and accessible
+utility-owned cable are vulnerable to unauthorized splicing.
 
-
-% 3.2.3 parasitic consumption
+% 3.2.3 parasitic consumption and minimum detectable power
 The electricity consumed by the metering system must be minimized to
 reduce capital expenditures on solar panels and battery storage.  We
 have chosen commercially available components for integration into
@@ -522,7 +550,7 @@ these systems.  The metering components are design for developed markets
 and cannot measure loads below 1.5W and consume 1.5W--2.5W.  These
 specifications are acceptable in markets where the loads are usually
 on the order of 100W but are not well suited for the more modest
-energy consumption in these rural areas.  An undetected 1W vampire load of a
+energy consumption in these rural areas.  An undetected 0.5 W vampire load of a
 cellphone charger can consume 12Wh in a day, equivalent to 1--2 hours
 of compact fluorescent lighting.  If this load is not measured, there
 is no possibility of collecting revenue.  The consumption of the meters
@@ -530,9 +558,9 @@ themselves also creates power expenditure that harms the economic viability
 of the system.  We are working on custom hardware that addresses each
 of these issues.
 
-
 \section{Future Work}
-Our project so far has been narrow in scope.  We are simply concerned with the
+
+Our work so far has been concerned with the
 provision of solar electricity with low operating costs and robust revenue
 collection.  However, the framework we have constructed allows for a much
 richer set of features.
@@ -543,8 +571,8 @@ would be straightforward to implement.
 Solar electricity is the good that is being metered and delivered by our
 system.  It would also be straightforward to adapt this to architecture
 to the provision of other generation technologies like hydropower or
-diesel generation.  Application to a purified water distribution system
-is also possible.
+diesel generation.  Application to other easily metered and valuable goods
+like purified water is also possible.
 % open monitoring platform
 These tools can also be adopted for inexpensive remote monitoring.  Our
 system could be adapted to create server storage of weather stations,
@@ -552,6 +580,11 @@ agricultural monitoring, or other measurements where GSM coverage exists.
 
 
 \section{Conclusion}
+We have designed and deployed a system that allows for the deployment
+of microutilities in remote areas.  These microutilities can be monitored
+and administered by a central server.  Since communication takes place
+over the GSM networks via SMS messages, these microutilities can be
+deployed anywhere that GSM coverage exists.
 
 
 \begin{figure}[]
@@ -629,3 +662,5 @@ use of the account.}
 
 
 \end{document}
+
+
