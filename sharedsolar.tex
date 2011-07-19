@@ -136,172 +136,179 @@ areas.
 % this implementation of the systems allows for payment to be made prepaid
 % we could apply any business model to this
 
-This section describes an architecture which allows for the generation,
-metering, distribution, and switching of photovoltaic-generated electricity for
-consumption by households.
+This section describes how the system allows for the generation,
+metering, distribution, and switching of photovoltaic-generated
+electricity for consumption by households.
 As implemented, the system allows power to be sold to consumers on a
 pre-paid basis.
-Each individual generation and metering system provides power to a small
-network of up to 20 homes.
-Payment and monitoring can be performed over the cellular network with commerce
-functions being performed by a central server.
-This central server allows for the remote administration of multiple generation
-and metering systems.
-Figure \ref{system} shows a schematic of multiple systems delivering power
-networked to a central server.
+Each generation and metering system provides power to a small network of
+up to 20 homes.
+Payment and monitoring takes place via local cellular networks, with
+commerce functions performed by a central server that allows for the
+remote administration of multiple generation and metering systems.
+Figure \ref{system} shows a schematic of multiple systems delivering
+power networked to a central server.
 
 \subsection{Generation, Metering, and Distribution}
 % 2.2.1 power generation
-Power is generated and distributed from a small central facility placed
-near a group of customers.
+Power is generated and distributed locally from a small central facility
+placed near a group of 10 to 20 customers.
 This facility consists of a weatherproof structure to protect the
 electronics, solar panels, batteries, a power conditioning unit (PCU),
-and three custom cabinets with metering and communications electronics.
-The structure is approximately 2 meters by 2 meters by 3 meters tall
+and three custom cabinets containing metering and communications
+electronics.
+The structure is approximately two meters by two meters by three meters tall
 with solar panels mounted on the roof.
-The panels are an 8 panel array of 175 W monocrystalline panels, yielding
-1.4 peak kW (Sharp NT-R5E3E 24V 175Wp).
+Electricity generation is provided by an eight-panel array of 175 W
+monocrystalline panels, yielding 1.4 peak kW (Sharp NT-R5E3E 24V 175Wp).
 The array power is received by the power conditioning unit inside the
-structure.
+structure, which carries out the functions of battery charging and
+conversion to AC power.
 The PCU (PPS Enviro Power, Single Phase SOLA ECO Inverter) contains a
 battery charger, inverter, maximum power point tracker, generator input,
 and an RS-232 interface for data collection.
 The inverter supplies power to the system and the customers at 220V and
 50Hz.
-Nighttime power is delivered to the inverter from a bank of valve
+Power produced while the sun is shining is stored in a bank of valve
 regulated lead acid (VRLA) (HBL T Series Tubular Gel VRLA 48V 360Ah)
 batteries.
+This battery bank provides power to the inverter during the nighttime hours.
 The output from the inverter is fed into the first of the three custom
-cabinets.  This control enclosure contains communications hardware and a
+cabinets.
+This control enclosure contains communications hardware and a
 plug computer.
-Power enters this control enclosure
-where it is measured to monitor the total power consumption of the
+As shown in Figure \ref{Enclosure}, power enters this control enclosure,
+where it is measured in order to monitor the total power consumption of the
 system.
 The AC power is then distributed from the central control enclosure to
 each of the two metering enclosures.
 % 2.2.2 power distribution
 Inside the two metering enclosures, the power is distributed by bus bars
-and is individually metered before sending to the households.
+and is individually metered before being sent to households.
 Each metering enclosure is capable of distributing metered power to up
-to 10 households.
-Households are individually wired to a meter in a star topology.
-Each house in provided with two energy-efficient light bulbs (5W Philips
-LED), switches, and an outlet for charging.
+to 10 households, which are individually wired to a meter in a star
+topology where each house has an individual wire running to the generation
+site.
+Each connected household is provided with two energy-efficient light
+bulbs (5W Philips LED), switches, and a plug outlet for appliances.
 % 2.2.3 SC20
 % 2.2.4 thread_ssmeter.py
 % metering
 % information flow
 Power to each of up to 20 households flows through a commercial metering
-product (Smart Circuit SC20, EED).
-This device can measure consumed power, switch on and off power, and
-communicate over an ethernet interface.
-Each of the metering enclosures has 10 SC20 devices on an ethernet switch.
-The ethernet switch from each metering enclosure is connected to an
+product (Smart Circuit SC20, EED) that communicates via an ethernet
+interface.
+This device measures consumed power and switches the power supply on and off.
+Each metering enclosure has 10 SC20 devices on an ethernet switch, which is connected to another
 ethernet switch in the control enclosure.
-A linux plug computer (SheevaPlug) is connected to the switch and runs a
-custom Python application to monitor loads, switch circuits, and
-communicate with the central server.
-The plug computer polls each of the 20 meters and the main meter for
+A Linux plug computer, (SheevaPlug) which is connected to the switch,
+runs a custom Python software application to monitor loads, switch
+circuits and communicate with a central server.
+The plug computer polls each of the 20 meters as well as the main meter for
 power consumption data.
-The balance of remaining credit for each household is stored on the computer.
-As power is consumed, credit is subtracted from the account based on the
-per kilowatt hour price.
+Information on each household's balance of remaining credit is stored on
+the computer.
+As power is consumed, credit is subtracted from each account according to the
+per kilowatt hour price of electricity.
 % pricing
-The custom software is written to allow for time of day pricing as well
-as tiered pricing based on the instantaneous power being demanded as
-well as the accumulated energy demanded.
+The custom metering software allows for the electricity tariff to change
+based on the time of day, the instantaneous power drawn, or the overall
+daily energy demanded.
 
 This software also controls communication between the local system and
 the remote server.
 The system communicates with a central server via SMS messages sent over
 the GSM network.
 At hourly intervals, the computer sends the accumulated daily
-consumption for each household to a central server for storage in a
-database.
+consumption of each household to a central server for storage in a
+central database for later data retrieval.
 % reporting
 % communication
 % responding
-The meter also listens for messages from the gateway over the GSM network.
+The meter also listens for messages from the central server over the GSM network.
 These messages include commands to add credit to an account or to turn
 on or off a circuit.
 % configuration interface
 
 % 2.3 customer-gateway-meter level
-\subsection{Communication Architecture}
-Each of the previously described installation sites can be monitored and
-administered from a central server.
-The central server with customer cellphones and the
+\subsection{Communication}
+The proposed architecture allows multiple installation sites to be
+monitored and administered from a central server.
+The central server communicates with customer cellphones and the
 local meters using HTTP and SMS messaging over the GSM
 network.
 For communication to occur between either the customer and the server
-or between the meter and the server, there must be a bridge between
+or between the meter and the server, a gateway is needed between
 the GSM network and the internet.
-This transfer between the wireless network to the internet can be
-performed either in partnership with the local telecom operator or using
-custom software and a modem.
-In Mali, we initially used a local computer and modem before contracting
-with the local telecom operator to create a service that converts
-SMS messages SMPP messages.
-We administer a custom server running the Kannel package to forward
-these SMPP messages to our central server over HTTP.
-This system's server uses a Python based web-application and a
+The gateway can either be provided by the local telecommunications operator
+or by employing custom software in conjunction with a modem.
+In Mali, we initially used the latter to relay messages from SMS
+directly to HTTP before contracting with the local telecom operator to
+create a service that converts SMS messages to Short message
+peer-to-peer (SMPP) messages.
+The local telecommunications operator can provide a system that is
+more robust than our custom solution by housing it in a more robust
+location with more reliable power and communications.
+A custom server running the Kannel package forwards
+these SMPP messages from the local telecom to our central server over HTTP.
+This system's server uses a Python-based Web application and a
 PostgreSQL database to store information received from customers and
-meters about their power consumption.
-This server has a web interface (Figure \ref{gateway}) that allows for
+meters on their power consumption.
+The server also has a web interface (Figure \ref{gateway}) that allows for
 the configuration of consumers' circuits and a visualization of their
 electricity consumption.
 
 % 2.4 transaction descriptions
 \subsection{Transaction and Reporting Descriptions}
-Having described the generation and distribution of power as well as the
-communication between the meters, customers, and the central server, we
-can now describe the features of the system.
-The system uses the functions described (generation, metering, switching,
-and communication) to create a pre-paid microutility.
-This microutility builds on the successful and locally familiar model of
-pre-paid cellular phone air time.
+The system uses the functions described (generation, metering,
+switching, and communication) to create a pre-paid microutility that
+builds on the successful and locally familiar model of pre-paid cellular
+phone air time.
 % purchase
 To purchase power, the customer buys a scratch-card from a local vendor.
-Scratch cards are made available locally to consumers for purchase in
-amounts as low as 1 USD (Figure \ref{scratchCards}).
-The scratch cards contain both instructions on how to recharge the account
+Scratch cards are available locally to in
+amounts as low as \$1 USD (Figure \ref{scratchCards}) and up to \$4 USD.
+The cards contain instructions on how to recharge the account
 and a concealed authorization code.
-According to instructions on the scratch card, this code is revealed and
-then sent by SMS message to the central gateway server where the code is
-validated.
+The customer enters the revealed code into his mobile phone and sends by
+SMS to the central gateway server for validation.
 Once validated, the gateway server sends a message to the local meter
-instructing the meter to add the scratch card's credit amount to the
-customers local account.
-After an acknowledgement from the meter back to the gateway that credit
-has been added, the gateway sends the customer a notice that the transaction
-was successful.
-In this way a consumer can purchase credit for their household account and
-the credit is available until exhausted at which time the household's meter
-turns off its relay.
+instructing it to add the scratch card's credit amount to the
+customer's account.
+The meter sends an acknowledgment back to the gateway that credit has
+been added, and the gateway in turn notifies the customer by SMS that
+the transaction has been successful.
+The consumer can then access electricity until her credit is exhausted,
+at which time the household meter automatically turns off its relay.
 
 % consumption
-As energy is consumed, the plug computer reduces the amount of credit
-available to the consumer.
-When the credit level reaches a lower setpoint, a message is sent
-to the gateway server, which in turn sends a message to the consumer warning them
-that their account is low and should be refilled.
+As energy is consumed, the plug computer reduces the consumer's credit accordingly.
+When credit level reaches a low setpoint, a message is sent to the
+gateway server, which in turn sends a message to the consumer warning
+him that his account is low and should be refilled soon.
 % inquiry
-Customers are also able to interact with their account to inquire about their
-balance.  Customers can send a message to the server which will send a message
-to the customer with their current credit balance.
-The customer can also send a message to the gateway requesting that the household's
-connection be turned on or off.  This allows the user to protect the circuit
-from unauthorized use during an absence.
+Customers are also able to interact with their accounts to inquire about
+their balance via SMS.
+The customer sends a text message to the server, which responds back
+with a message containing her credit balance.
+She can also send a message to the gateway requesting that the household's
+connection be turned on or off.
+This allows the customer to protect against unauthorized power use
+during an absence.
 
 % meter initiated
 The system is programmed to collect and store information about customer
-consumption on the central server.
-Hourly, a message is sent from the central server to the gateway that contains
-the accumulated energy usage for the day of each household.
-The meter can also send information on the photovoltaic energy production
+electricity consumption on the central server.
+Hourly, a message is sent from the central server to the gateway
+containing information on each household's accumulated daily energy
+usage.
+The meter can also send data regarding photovoltaic energy production
 and battery voltage.
-The meter also shuts off the circuit in the event that the customer uses too
-much instantaneous power or consumes too much energy in a 24 hour period.
+% explain the implications of this section
+To guard against depleting the batteries, the meter can shut off a consumer
+circuit that is using more electricity than the system is designed for.
+The meter software can turn off electricity to the household if the consumer's
+power or daily energy is over an agreed maximum.
 % gateway initiated
 The meter also listens for incoming SMS messages from the gateway.
 These messages from the gateway are often diagnostic requests.
