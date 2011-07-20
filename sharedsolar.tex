@@ -6,7 +6,7 @@
 \newcommand{\note}[1]{{\color{red} NOTE: *** #1 ***}}
 \begin{document}
 
-\title{A Prepaid Architecture for Solar Electricity Delivery}
+\title{A Prepaid Architecture for Solar Electricity Delivery In Rural Areas}
 %\author{{Daniel Soto}, Matt Basinger, Vijay Modi}
 \date{\today}
 \maketitle
@@ -90,16 +90,24 @@ In Kenya, investment in individual solar home systems has been
 considerable, but such systems are primarily owned by the
 wealthy.\cite{Jacobson:Connective}
 Solar home system users in Bangladesh report that the costs of financing
-associated with solar home systems are a hardship.
-\cite{Mondal:SHSBangladesh:2011}
+associated with solar home systems are a hardship.\cite{Mondal:SHSBangladesh:2011}
 
+% description and prior work
 In an environment in which the most common, affordable energy sources
 have significant drawbacks, and household electricity generation
 services remain out of reach for most consumers, an opportunity for a
 new service model arose.
 By combining distributed generation with cellular communication, we
 demonstrate that a modular microutility can deliver power to remote
-locales using a robust payment collection system.
+locales using a robust prepaid collection system.
+This effort is builds on previous work in prepaid electricity and
+GSM-based communication in rural areas.
+Prepaid metering for grid electricity has been successfully demonstrated
+in South Africa and proven as a viable business model.\cite{Tewari:2003}
+We also build on previous work using SMS to gather data from remote
+areas.\cite{RapidSMS, Hartung:2010}
+Also related are efforts to build autonomous metering systems using GSM
+and SMS.\cite{Ramamurthy:2010}
 % modular system can be deployed one at a time
 Distributed solar generation, though costly can be deployed gradually,
 without the same large lump expenditures required for grid extension.
@@ -487,7 +495,7 @@ To understand if only consumers with higher expenditures on electricity
 are able to maintain non-zero balances consistently, we plot the fraction of
 time with credit available against the consumption per household.
 Figure \ref{scatterCreditTime} plots consumption against the fraction of time
-with available credit and 
+with available credit and
 shows that some customers with both high and low expenditures are able
 to keep credit available most of the time.
 However, those customers with credit available for lower fractions of time had lower
@@ -531,10 +539,10 @@ drives.
 % why did we use star topology vs bus distribution?
 Another challenge is reducing the cost of wires for power distribution.
 We use a star topology for power distribution where each household has an
-uninterrupted line to the meter.  
+uninterrupted line to the meter.
 The main reason for this
 choice was clearly define the boundaries of ownership between the utility
-and the consumer.  
+and the consumer.
 In the current model of the system, the consumer pays for
 and owns the wiring leading from the central production shed.  Any tampering
 of the wire will result in lost power for the consumer rather than lost
@@ -558,31 +566,31 @@ cellphone charger can consume 12Wh in a day, equivalent to 1--2 hours
 of compact fluorescent lighting.  If this load is not measured, there
 is no possibility of collecting revenue.  The consumption of the meters
 themselves also creates power expenditure that harms the economic viability
-of the system.  
+of the system.
 
 
 \section{Future Work}
 Our work so far has been concerned with the
 provision of solar electricity with low operating costs and robust revenue
-collection.  
+collection.
 However, the framework we have constructed allows for a much
 richer set of features.
 % demand response
 A demand response system using text messages and discounts
-would be straightforward to implement within this framework 
+would be straightforward to implement within this framework
 by incorporating logic at the meter or central server that
-could monitor the energy generation, send demand response 
+could monitor the energy generation, send demand response
 requests to customers, and credit accounts accordingly.
 % other applications
-In this pilot study, solar electricity is the good that 
+In this pilot study, solar electricity is the good that
 is being metered and delivered by our
-system.  
+system.
 It is also possible to adapt this to architecture
 to the provision of other generation technologies like hydropower or
 diesel generation.  Application to other easily metered and valuable goods
 like purified water is also possible.
 % open monitoring platform
-The open software tools we have developed can also be adopted for 
+The open software tools we have developed can also be adopted for
 remote monitoring.  Our
 system could be adapted to create server storage of weather stations,
 agricultural monitoring, or other measurements where GSM coverage exists.
@@ -668,7 +676,7 @@ use of the account.}
 
 
 
-\bibliography{architecture,architecture_books}
+\bibliography{architecture,architecture_other}
 \bibliographystyle{plain}
 
 
