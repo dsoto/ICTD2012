@@ -558,25 +558,34 @@ themselves also creates power expenditure that harms the economic viability
 of the system.  We are working on custom hardware that addresses each
 of these issues.
 
-\section{Future Work}
 
+\section{Future Work}
 Our work so far has been concerned with the
 provision of solar electricity with low operating costs and robust revenue
-collection.  However, the framework we have constructed allows for a much
+collection.  
+However, the framework we have constructed allows for a much
 richer set of features.
 % demand response
 A demand response system using text messages and discounts
-would be straightforward to implement.
+would be straightforward to implement within this framework 
+by incorporating logic at the meter or central server that
+could monitor the energy generation, send demand response 
+requests to customers, and credit accounts accordingly.
 % other applications
-Solar electricity is the good that is being metered and delivered by our
-system.  It would also be straightforward to adapt this to architecture
+In this pilot study, solar electricity is the good that 
+is being metered and delivered by our
+system.  
+It is also possible to adapt this to architecture
 to the provision of other generation technologies like hydropower or
 diesel generation.  Application to other easily metered and valuable goods
 like purified water is also possible.
 % open monitoring platform
-These tools can also be adopted for inexpensive remote monitoring.  Our
+The open software tools we have developed can also be adopted for 
+remote monitoring.  Our
 system could be adapted to create server storage of weather stations,
 agricultural monitoring, or other measurements where GSM coverage exists.
+We are also developing custom electronics that have lower power consumption
+and are capable of measuring loads below 1 watt.
 
 
 \section{Conclusion}
