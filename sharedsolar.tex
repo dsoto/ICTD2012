@@ -50,7 +50,7 @@ Higher levels of electricity allow for mechanized power and can
 directly increase incomes in rural areas.\cite{Kirubi:2009}
 
 One barrier to central grid extension is cost.
-Grid extension costs can exceed \$2000USD per household, prohibitively
+Grid extension costs can exceed \$2000 USD per household, prohibitively
 high even for many governments in developing
 nations.\cite{ModiPlanningKenya}
 Moreover, grid extension requires that capital be allocated in large
@@ -356,7 +356,7 @@ phones.
 Training sessions were conducted in Bambara, the local language, with
 the help of translators.
 % literacy / message simplification
-During the training, customers were provided with scratch cards (Figure
+At the training sessions, customers were provided with scratch cards (Figure
 \ref{scratchCards}) that contained a numeric authorization code and
 instructions for sending the code to the central server for
 validation.
@@ -364,7 +364,7 @@ To purchase credit, the scratch card instructed customers to send a
 short alphabetic command code, followed by their assigned account
 number, followed by the authorization code.
 This scheme was modeled after the purchase of cellphone airtime.
-Customers reported that the combination of numbers and letters was
+During training, customers reported that the combination of numbers and letters was
 cumbersome to enter and that our instruction cards were verbose and
 difficult to understand.
 We also discovered that not all villagers in Mali were not as
@@ -466,7 +466,7 @@ The most frequent expenditure is from 1USD to 1.5USD.
 This architecture for power delivery uses a prepaid model.
 Customers must maintain a non-zero amount of credit in their accounts in order
 to use electricity.
-The histogram in Figure \ref{creditHistogram} the number of customer households
+The histogram in Figure \ref{creditHistogram} plots the number of customer households
 that have a given percentage of time with credit available.
 Over half of the consumers maintain non-zero amounts of credit over 90\% of
 the time.
@@ -486,12 +486,11 @@ available in their homes over 90\% of the time.}
 To understand if only consumers with higher expenditures on electricity
 are able to maintain non-zero balances consistently, we plot the fraction of
 time with credit available against the consumption per household.
-A scatterplot of users plotting consumption against the fraction of time with
-available credit.
-Figure \ref{scatterCreditTime}
-shows that customers with both high and low expenditures are able
-to keep credit available.
-Those customers with credit available for lower fractions of time had lower
+Figure \ref{scatterCreditTime} plots consumption against the fraction of time
+with available credit and 
+shows that some customers with both high and low expenditures are able
+to keep credit available most of the time.
+However, those customers with credit available for lower fractions of time had lower
 monthly expenditures.
 
 \begin{figure}[]
@@ -530,14 +529,18 @@ drives.
 
 % 3.2.2 installation costs
 % why did we use star topology vs bus distribution?
-We are using a star topology for distribution.  The main reason for this
+Another challenge is reducing the cost of wires for power distribution.
+We use a star topology for power distribution where each household has an
+uninterrupted line to the meter.  
+The main reason for this
 choice was clearly define the boundaries of ownership between the utility
-and the consumer.  In the current model of the system, the consumer pays for
+and the consumer.  
+In the current model of the system, the consumer pays for
 and owns the wiring leading from the central production shed.  Any tampering
 of the wire will result in lost power for the consumer rather than lost
 revenue for the utility.  This reduces the risk of one common type of fraud
 and uses social pressure as a deterrent.
-One disadvantage to this approach is the increased cost of distribution.
+One disadvantage to this approach is the potentially higher cost of distribution.
 A bus distribution scheme would in most cases lower the total length of
 cable needed.  However, long sections of above-ground and accessible
 utility-owned cable are vulnerable to unauthorized splicing.
@@ -555,8 +558,7 @@ cellphone charger can consume 12Wh in a day, equivalent to 1--2 hours
 of compact fluorescent lighting.  If this load is not measured, there
 is no possibility of collecting revenue.  The consumption of the meters
 themselves also creates power expenditure that harms the economic viability
-of the system.  We are working on custom hardware that addresses each
-of these issues.
+of the system.  
 
 
 \section{Future Work}
