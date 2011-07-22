@@ -20,13 +20,14 @@ what a conventional grid extension would offer.
 The microutility in this paper provides power on a
 pre-paid basis similar to the way cellular phone
 air-time is sold.
-The microutility described below uses the SMS networks
+This system uses SMS messages sent 
+over the GSM networks
 for communication allowing installation in any place
 within reach of a GSM tower.
 Several of these individual microutilities are monitored
 and administered via a central server.
 These microutilities are currently installed and providing
-power to approximately 60 households in Mali.
+power to approximately 90 households in Mali.
 \end{abstract}
 
 \section{Introduction}
@@ -42,20 +43,20 @@ kerosene and drycell batteries and by paying for battery charging
 services.
 Survey data in the Millennium Villages show that these expenditures
 are a significant fraction of household spending.\cite{MVPEnergy}
-Despite the this evidence of spending on energy services,
+Despite this evidence of spending on energy services,
 grid extension has not occurred in many areas.
 Even modest levels of electricity bring the benefits of clean lighting
 and communication through cellphones.\cite{Cabraal:2005}
 Higher levels of electricity allow for mechanized power and can
 directly increase incomes in rural areas.\cite{Kirubi:2009}
 
-One barrier to central grid extension is cost.
+One barrier to the extension of the existing grid to rural areas is cost.
 Grid extension costs can exceed \$2000 USD per household, prohibitively
 high even for many governments in developing
 nations.\cite{ModiPlanningKenya}
 Moreover, grid extension requires that capital be allocated in large
-lump sums to pay for the installation of expensive, high voltage power
-lines in remote areas that is necessary prior to individual connections.
+lump sums to pay for the installation of the expensive, high voltage power
+lines in remote areas that are necessary prior to individual connections.
 Even if capital costs are raised and grid extensions constructed,
 reading meters and collecting tariffs in remote locations pose
 significant logistical problems, driving up operating and maintenance
@@ -73,12 +74,12 @@ Chemical energy sources such as kerosene, candles, and dry cell batteries
 are often used for lighting.
 Kerosene, a very common lighting fuel, carries the drawbacks of heat,
 soot, and fire risk.
-While single-use chemical fuel is often used for lighting, rechargeable
-batteries are often used for communication and entertainment purposes
+While single-use chemical fuel is used for lighting, rechargeable
+batteries are often used to power communication and entertainment devices
 such as cellphones and televisions.
 Since electrical energy production does not exist in most remote areas,
 the devices themselves, or large rechargeable batteries, are instead
-often carried to stores that offer charging services.
+carried to stores that offer charging services.
 Such recharging of cellphones and lead-acid batteries carry small
 purchase costs, but the cost per unit of electricity is much higher than
 that of electricity provided via a grid connection.
@@ -91,10 +92,13 @@ considerable, but such systems are primarily owned by the
 wealthy.\cite{Jacobson:Connective}
 Solar home system users in Bangladesh report that the costs of financing
 associated with solar home systems are a hardship.\cite{Mondal:SHSBangladesh:2011}
+At a lower price, solar lanterns with rechargeable batteries are available
+and can provide light and cellphone charging but cannot provide 
+power for television or other common demands.
 
 % description and prior work
-In an environment in which the most common, affordable energy sources
-have significant drawbacks, and household electricity generation
+In an environment in which the most common affordable energy sources
+have significant drawbacks and household electricity generation
 services remain out of reach for most consumers, an opportunity for a
 new service model arose.
 By combining distributed generation with cellular communication, we
@@ -108,16 +112,22 @@ We also build on previous work using SMS to gather data from remote
 areas.\cite{RapidSMS, Hartung:2010}
 Also related are efforts to build autonomous metering systems using GSM
 and SMS.\cite{Ramamurthy:2010}
+Researchers have demonstrated a system for gathering of solar panel
+electricity production and battery health over SMS networks.\cite{SimbaLink}
+Simpa Networks is also providing a solar home system that can be
+paid for in installments.\cite{Simpa}
+
 % modular system can be deployed one at a time
-Distributed solar generation, though costly can be deployed gradually,
-without the same large lump expenditures required for grid extension.
+Distributed solar generation, though costly, can be deployed gradually,
+without the large lump expenditures required for grid extension.
 % remote communications lowers o&m
-By using the telecommunications network that have been established in
+By using the telecommunications networks that have been established in
 many rural areas of developing countries, these systems can operate with
 remote supervision and administration.
 With customer billing and monitoring of the system done remotely
 using wireless communications protocols such as SMS, the travel costs
-to the site can be reduced to necessary maintenance visits.
+to the site can be reduced by eliminating routine visits and restricting 
+travel to necessary maintenance visits.
 % attractive to investors
 If manufactured at a cost-effective scale, this architecture could make
 for an attractive business proposition for a utility, which could deploy
@@ -127,6 +137,12 @@ The concept is similar to that of a power-purchase agreement whereby an
 outside investor provides the capital to pay for solar generation, while
 the power is consumed by a private party that pays solely for the
 electricity.
+By focusing on an approach that aggregates several households together,
+we hope to circumvent the difficulties of end-user finance by creating
+an investment opportunity for an enterprise.
+The selling of excess power from cellular towers is a similar idea to
+this where the capital for energy generation is paid by a cellular 
+communications provider and the electricity services are sold to consumers.
 % data collection provides service to energy researchers
 % data collection for research
 Meanwhile, this architecture allows for the construction of a rich data
@@ -177,8 +193,11 @@ This facility consists of a weatherproof structure to protect the
 electronics, solar panels, batteries, a power conditioning unit (PCU),
 and three custom cabinets containing metering and communications
 electronics.
-Figure \ref{ShedWiringDiagram} shows the power flow between the generation and
+Figure \ref{ShedWiringDiagram} shows the power flow and voltage levels 
+between the generation and
 metering components and the households.
+The DC components of the system are 48V and power is delivered to 
+consumers at 230 VAC.
 
 \begin{figure}[]
 \begin{center}
@@ -192,7 +211,8 @@ through busbars and meters before distribution to the households.}
 \label{ShedWiringDiagram}
 \end{figure}
 
-The structure is approximately two meters by two meters by three meters tall
+The central facility is approximately two meters by 
+two meters by three meters tall
 with solar panels mounted on the roof.
 Electricity generation is provided by an eight-panel array of 175 W
 monocrystalline panels, yielding 1.4 peak kW (Sharp NT-R5E3E 24 V 175 Wp).
@@ -202,7 +222,7 @@ conversion to AC power.
 The PCU (PPS Enviro Power, Single Phase SOLA ECO Inverter) contains a
 battery charger, inverter, maximum power point tracker, generator input,
 and an RS-232 interface for data collection.
-The inverter supplies power to the system and the customers at 220 V and
+The inverter supplies power to the system and the customers at 230 V and
 50 Hz.
 Power produced while the sun is shining is stored in a bank of valve
 regulated lead acid (VRLA) (HBL T Series Tubular Gel VRLA 48 V 360 Ah)
@@ -210,8 +230,7 @@ batteries.
 This battery bank provides power to the inverter during the nighttime hours.
 The output from the inverter is fed into the first of the three custom
 cabinets.
-This control enclosure contains communications hardware and a
-plug computer.
+The first cabinet is the control enclosure which contains communications hardware and a plug computer.
 As shown in Figure \ref{Enclosure}, power enters this control enclosure,
 where it is measured in order to monitor the total power consumption of the
 system.
@@ -236,7 +255,7 @@ interface.
 This device measures consumed power and switches the power supply on and off.
 Each metering enclosure has 10 SC20 devices on an ethernet switch, which is connected to another
 ethernet switch in the control enclosure.
-A Linux plug computer, (SheevaPlug) which is connected to the switch,
+A Linux plug computer, \mbox{(SheevaPlug)} which is connected to the switch,
 runs a custom Python software application to monitor loads, switch
 circuits and communicate with a central server.
 The plug computer polls each of the 20 meters as well as the main meter for
@@ -244,7 +263,7 @@ power consumption data.
 Information on each household's balance of remaining credit is stored on
 the computer.
 As power is consumed, credit is subtracted from each account according to the
-per kilowatt hour price of electricity.
+per-kilowatt-hour price of electricity.
 % pricing
 The custom metering software allows for the electricity tariff to change
 based on the time of day, the instantaneous power drawn, or the overall
@@ -276,7 +295,7 @@ central database for later data retrieval.
 % responding
 The meter also listens for messages from the central server over the GSM network.
 These messages include commands to add credit to an account or to turn
-on or off a circuit.
+a circuit on or off.
 % configuration interface
 
 % 2.3 customer-gateway-meter level
@@ -296,8 +315,8 @@ directly to HTTP before contracting with the local telecom operator to
 create a service that converts SMS messages to Short message
 peer-to-peer (SMPP) messages.
 The local telecommunications operator can provide a system that is
-more robust than our custom solution by housing it in a more robust
-location with more reliable power and communications.
+more reliable than our custom solution by housing it in a 
+location with more robust power and communications.
 A custom server running the Kannel package forwards
 these SMPP messages from the local telecom to our central server over HTTP.
 This system's server uses a Python-based Web application and a
@@ -325,11 +344,11 @@ builds on the successful and locally familiar model of pre-paid cellular
 phone air time.
 % purchase
 To purchase power, the customer buys a scratch-card from a local vendor.
-Scratch cards are available locally to in
-amounts as low as \$1 USD (Figure \ref{scratchCards}) and up to \$4 USD.
-The cards contain instructions on how to recharge the account
+Scratch cards (Figure \ref{scratchCards}) are available locally in
+amounts as low as \$1 USD  and as high as \$4 USD.
+The cards contain instructions on how to recharge the buyer's account
 and a concealed authorization code.
-The customer enters the revealed code into his mobile phone and sends by
+The customer enters the revealed code into his mobile phone and sends it by
 SMS to the central gateway server for validation.
 Once validated, the gateway server sends a message to the local meter
 instructing it to add the scratch card's credit amount to the
@@ -342,9 +361,8 @@ at which time the household meter automatically turns off its relay.
 
 % consumption
 As energy is consumed, the plug computer reduces the consumer's credit accordingly.
-When credit level reaches a low setpoint, a message is sent to the
-gateway server, which in turn sends a message to the consumer warning
-him that his account is low and should be refilled soon.
+When the credit level reaches a low setpoint, a message is sent to the
+gateway server, which in turn sends a message to the consumer warning that her account is low and should be refilled soon.
 % inquiry
 Customers are also able to interact with their accounts to inquire about
 their balance via SMS.
@@ -369,22 +387,22 @@ circuit that is using more electricity than the system is designed for.
 The meter software can turn off electricity to the household if the consumer's
 power or daily energy is over an agreed maximum.
 % gateway initiated
-The meter also listens for incoming SMS messages from the gateway.
-These messages from the gateway are often diagnostic requests.
+The meter also listens for incoming SMS messages from the gateway,
+which are often diagnostic requests.
 
 
 \section{Discussion}
-At the time of this writing, we have three systems installed in Mali
-serving 49 households with pre-paid electricity.
-One of these systems is near a city and two of the systems are in the
+At the time of this writing, we have five systems installed in Mali
+serving about 90 households with pre-paid electricity.
+One of these systems is near a city and four of the systems are in the
 Tiby Millennium Village.
 This area is well suited for the system since it has
 a plentiful solar resource and though remote, has dense settlement
-patterns that allow for shorter wire distribution lengths.
+patterns that allow for short wire distribution lengths.
 
 
 \subsection{Installation}
-The installation process begins with an assessment of a potential site for
+The installation process began with an assessment of a potential site for
 suitability followed by planning and installation.
 Consumers were
 approached about their willingness to pay a connection fee and a service
@@ -407,7 +425,7 @@ for electricity purchase transactions.
 
 \subsection{Consumer Training}
 Although consumers are familiar with mobile phone technology and the
-purchasing of mobile phone airtime, we conducted trainings \ref{training}
+purchasing of mobile phone airtime, we conducted trainings (Figure \ref{training})
 to instruct consumers on account management.
 These trainings were conducted to be sure that customers knew how to
 purchase credit and inquire into their account using their mobile
@@ -426,7 +444,7 @@ This scheme was modeled after the purchase of cellphone airtime.
 During training, customers reported that the combination of numbers and letters was
 cumbersome to enter and that our instruction cards were verbose and
 difficult to understand.
-We also discovered that not all villagers in Mali were not as
+We also discovered that not all villagers in Mali were as
 comfortable with SMS messaging as we initially assumed.
 Anecdotally, we noticed a higher level of familiarity with SMS
 among some of the younger members.
@@ -551,6 +569,7 @@ Over half of the consumers maintain non-zero amounts of credit over 90\% of
 the time.
 
 
+
 \begin{figure}[]
 \begin{center}
 \includegraphics[trim = 0in 1.3in 0in 0in, clip, width=\columnwidth]
@@ -564,9 +583,9 @@ available in their homes over 90\% of the time.}
 
 To understand if only consumers with higher expenditures on electricity
 are able to maintain non-zero balances consistently, we plot the fraction of
-time with credit available against the consumption per household.
-Figure \ref{scatterCreditTime} plots consumption against the fraction of time
-with available credit and
+time with credit available against the expenditure per household in
+Figure \ref{scatterCreditTime}.
+This plot
 shows that some customers with both high and low expenditures are able
 to keep credit available most of the time.
 However, those customers with credit available for lower fractions of time had lower
@@ -589,7 +608,8 @@ the monthly monetary value of electricity consumed in USD is plotted on the x-ax
 \subsection{Challenges}
 We have identified several areas needing further work in order to have
 a robust and economically viable system.  Problems with communication
-can prevent consumers from replenishing their accounts.  Also, excess
+can prevent consumers from replenishing their accounts causing 
+an interruption of service and frustration.  Also, excessive
 power consumption by the meter and communication electronics diverts
 electricity from consumers and requires extra generation costs.
 
@@ -597,9 +617,7 @@ electricity from consumers and requires extra generation costs.
 % two issues: network reliability, modem hangs
 These systems are intended to run uninterrupted and unattended in
 remote locations.  Communication uptime is very important.  We have
-observed problems with network reliability and latency.
-These disruptions can
-place the modem in an undefined state requiring a reboot.
+observed problems with communications reliability and latency.
 Problems with network reliability have prompted us to explore other
 means for information flow in the presence of intermittent connectivity.
 We are considering both queueing information until the network becomes
@@ -628,13 +646,13 @@ utility-owned cable are vulnerable to unauthorized splicing.
 The electricity consumed by the metering system must be minimized to
 reduce capital expenditures on solar panels and battery storage.  We
 have chosen commercially available components for integration into
-these systems.  The metering components are design for developed markets
-and cannot measure loads below 1.5 W and consume 1.5 W--2.5 W.  These
+these systems.  The metering components are designed for developed markets
+and cannot measure loads below 2.0 W and they consume 1.5 W--2.5 W.  These
 specifications are acceptable in markets where the loads are usually
 on the order of 100 W but are not well suited for the more modest
 energy consumption in these rural areas.  An undetected 0.5 W vampire load of a
-cellphone charger can consume 12 Wh in a day, equivalent to 1--2 hours
-of compact fluorescent lighting.  If this load is not measured, there
+cellphone charger can consume 12 Wh in a day, equivalent to over 2 hours
+of LED lighting.  If this load is not measured, there
 is no possibility of collecting revenue.  The consumption of the meters
 themselves also creates power expenditure that harms the economic viability
 of the system.
@@ -658,25 +676,34 @@ is being metered and delivered by our
 system.
 It is also possible to adapt this to architecture
 to the provision of other generation technologies like hydropower or
-diesel generation.  Application to other easily metered and valuable goods
+diesel generation.  
+Application to other easily metered and valuable goods
 like purified water is also possible.
+Such a clean water kiosk could enable carefully measured amounts 
+of water to be provided in an automated fashion.
 % open monitoring platform
 The open software tools we have developed can also be adopted for
-remote monitoring.  Our
-system could be adapted to create server storage of weather stations,
+remote monitoring.  
+This work could be adapted to create server storage of weather stations,
 agricultural monitoring, or other measurements where GSM coverage exists.
-We are also developing custom electronics that have lower power consumption
+To address the problems of power consumption by the meter,
+we are developing custom electronics that have lower power consumption
 and are capable of measuring loads below 1 watt.
+
 
 
 \section{Conclusion}
 We have designed and deployed a system that allows for the deployment
-of microutilities in remote areas.  These microutilities can be monitored
-and administered by a central server.  Since communication takes place
+of microutilities in remote areas.  
+These microutilities can be monitored
+and administered by a central server.  
+Approximately 90 households in Mali are purchasing solar-generated 
+electricity using this prepaid business model. 
+Since communication takes place
 over the GSM networks via SMS messages, these microutilities can be
 deployed anywhere that GSM coverage exists.
 
-\newpage
+%\newpage
 
 \bibliography{architecture,architecture_other}
 \bibliographystyle{plain}
