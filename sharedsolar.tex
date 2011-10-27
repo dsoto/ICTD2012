@@ -497,24 +497,32 @@ We start by looking at a typical consumption pattern for households.
 % characterize Mali with income and expenditures
 % power usage
 % power usage low during the day
-Figure \ref{averagedAccumulatedEnergy} shows the averaged
-hourly power readings over a period of one month.
-Most of the load is at night with a wattage level that is consistent
+% walter - why axis lines trends exceptions recap
+To understand the usage patterns of consumers during the day
+we averaged the hourly power consumption 
+Figure \ref{average_power} shows the averaged
+hourly power readings for a single household in Mali 
+over a period of one month.
+In this figure we plot the average power over a one hour period
+on the y-axis and the hour of day from 0--23 on the x-axis.
+The box shows the mean power over the hour and the whiskers indicate
+the standard deviation of the day to day readings.
+The plot shows that most of the power consumed is at night with a 
+wattage level that is consistent
 with the use of the 5 watt LED light bulb that we provide.
-There is also a small amount of early morning lighting load before sunrise.
 During the day however, there is almost no electricity consumption.
-This pattern necessitates battery storage of the photovoltaic energy
-generated.
+This pattern of primarily daytime use necessitates battery storage 
+of the photovoltaic energy generated.
 
 \begin{figure}[]
 \begin{center}
 \includegraphics[trim = 0in 1.3in 0in 0in, clip, width=\columnwidth]
-                 {figures/averagePower.pdf}
+                 {figures/average_power.pdf}
 \end{center}
 \caption{Hourly power use averaged over one month of data.  Each datapoint is the
-average power consumed for that hour over a time period of one month.  Error bars
+average power consumed for that hour over a time period of two weeks.  Error bars
 indicate the standard deviation for the data set.}
-\label{averagedAccumulatedEnergy}
+\label{average_power}
 \end{figure}
 
 % most common usage at 10-15 watthours
