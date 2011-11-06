@@ -615,7 +615,7 @@ the monthly monetary value of electricity consumed in USD is plotted on the x-ax
 %\note{need discussion of costs relative to kerosene or costs outlined in MV surveys}
 
 % 3.2 challenges
-\subsection{Challenges}
+\section{Challenges}
 We have identified several areas needing further work in order to have
 a robust and economically viable system.  Problems with communication
 can prevent consumers from replenishing their accounts causing 
@@ -625,6 +625,7 @@ electricity from consumers and requires extra generation costs.
 
 % 3.2.1 reliability/robustness
 % two issues: network reliability, modem hangs
+\subsection{Network Reliability}
 These systems are intended to run uninterrupted and unattended in
 remote locations.  Communication uptime is very important.  We have
 observed problems with communications reliability and latency.
@@ -636,6 +637,7 @@ drives.
 
 % 3.2.2 installation costs
 % why did we use star topology vs bus distribution?
+\subsection{Installation Costs}
 Another challenge is reducing the cost of wires for power distribution.
 We use a star topology for power distribution where each household has an
 uninterrupted line to the meter.
@@ -651,8 +653,11 @@ One disadvantage to this approach is the potentially higher cost of distribution
 A bus distribution scheme would in most cases lower the total length of
 cable needed.  However, long sections of above-ground and accessible
 utility-owned cable are vulnerable to unauthorized splicing.
+This could be mitigated by monitoring along the network but would increase
+the complexity of the system.
 
 % 3.2.3 parasitic consumption and minimum detectable power
+\subsection{Parasitic Consumption}
 The electricity consumed by the metering system must be minimized to
 reduce capital expenditures on solar panels and battery storage.  We
 have chosen commercially available components for integration into
