@@ -532,10 +532,11 @@ We start by looking at a typical consumption pattern for households.
 % power usage low during the day
 % walter - why axis lines trends exceptions recap
 To understand the usage patterns of consumers during the day
-we averaged the hourly power consumption 
+we averaged the hourly power consumption reported to our server
+of households over several days. 
 Figure \ref{average_power} shows the averaged
 hourly power readings for a single household in Mali 
-over a period of one month.
+over a period of two weeks.
 In this figure we plot the average power over a one hour period
 on the y-axis and the hour of day from 0--23 on the x-axis.
 The box shows the mean power over the hour and the whiskers indicate
@@ -558,20 +559,22 @@ indicate the standard deviation for the data set.}
 \label{average_power}
 \end{figure}
 
+% energy histogram section
 % most common usage at 10-15 watthours
-To get a sense of the daily consumption levels in our Mali pilot sites,
-we plot a histogram (Figure \ref{energyHistogram}) of the daily
-energy consumed with the frequency being
-the number of days that power was observed in any household.
-This data is for one meter in one village, Tiby II, in the Tiby cluster
-in Mali with 17 households connected.
-
-The histogram shows that the most frequent
-daily usage is in the range of 10--15 watt-hours.
-This is equivalent to 2--3 hours of use of the 5 watt LED
+To get a sense of the total daily energy consumption levels in our Mali 
+proof of concept sites, we plot a histogram (Figure \ref{energyHistogram}) 
+of the daily energy consumed by customers over a two week period.
+This figure shows number of times a given daily usage is observed in one of 
+the village sites.
+% only non-zero days shown?
+The x-axis shows the energy consumption and the y-axis displays the number
+of times that energy was observed in any household.
+The histogram shows that the most frequent daily usage is in the range of 
+10--15 watt-hours.
+This energy consumption is equivalent to 2--3 hours of use of the 5 watt LED
 light bulbs installed with the system.
-The households that display usage above this level usually own an appliance
-such as a television or radio.
+The households that display usage above this level appear own a separate 
+appliance such as a television or radio. 
 %\note{need survey data with id to make this statement}
 
 \begin{figure}[]
@@ -585,10 +588,15 @@ days of where this level of consumption is observed.}
 \label{energyHistogram}
 \end{figure}
 
+With the data received at the server, we can track the monthly amount being 
+spent by participating customers.
 Figure \ref{consumptionHistogram} shows the number of customers consuming
-a given amount of credit monthly.  
-The exchange rate is approximately 500 XCFA to \$1 USD.
+a given amount of credit monthly.
+The x-axis shows the credit consumed in USD while the y-axis shows the 
+number of customers who have spent that amount.
 The most frequent expenditure is from \$1 USD to \$1.5 USD.
+For comparison, customers in the Tiby Cluster Millennium Village spend a
+monthly average of \$4.50 for kerosene and \$1.80 for dry cell batteries.
 
 \begin{figure}[]
 \begin{center}
@@ -603,14 +611,19 @@ The most frequent expenditure is from \$1 USD to \$1.5 USD.
 
 % consumer percent of time with credit
 %A prepaid architecture allows the consumer to choose if power is available.
+
 This architecture for power delivery uses a prepaid model.
 Customers must maintain a non-zero amount of credit in their accounts in order
 to use electricity.
+By tabulating the time that customers have zero balance in their account, we can
+measure how long they would go without power.
 The histogram in Figure \ref{creditHistogram} plots the number of customer households
 that have a given percentage of time with credit available.
 Over half of the consumers maintain non-zero amounts of credit over 90\% of
 the time.
-
+While many of the customers were able to maintain credit for much of the 
+time, the prepaid model allowed the other customers to consume power only
+when they had the funds available.
 
 
 \begin{figure}[]
@@ -633,6 +646,7 @@ shows that some customers with both high and low expenditures are able
 to keep credit available most of the time.
 However, those customers with credit available for lower fractions of time had lower
 monthly expenditures.
+% how do we show that these customers are part of the appeal of prepaid?
 
 \begin{figure}[]
 \begin{center}
