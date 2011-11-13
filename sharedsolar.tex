@@ -718,33 +718,44 @@ the complexity of the system.
 
 % 3.2.3 parasitic consumption and minimum detectable power
 \subsection{Parasitic Consumption}
-The electricity consumed by the metering system must be minimized to
-reduce capital expenditures on solar panels and battery storage.  We
-have chosen commercially available components for integration into
-these systems.  The metering components are designed for developed markets
-and cannot measure loads below 2.0 W and they consume 1.5 W--2.5 W.  These
-specifications are acceptable in markets where the loads are usually
-on the order of 100 W but are not well suited for the more modest
-energy consumption in these rural areas.  An undetected 0.5 W vampire load of a
-cellphone charger can consume 12 Wh in a day, equivalent to over 2 hours
-of LED lighting.  If this load is not measured, there
-is no possibility of collecting revenue.  The consumption of the meters
-themselves also creates power expenditure that harms the economic viability
-of the system.
-
+Any electricity that is consumed by the metering, communication, and 
+switching components adds to the capital cost for energy generation and 
+storage.
+We have chosen commercially available components for integration into
+these systems.  
+The metering components are designed for developed markets
+and consume 1.5 W--2.5 W.  
+This power consumption is acceptable in markets where the loads are 
+usually on the order of 100 W but are not well suited for the more modest
+energy consumption in these rural areas.  
 The off-the-shelf metering and switching electronics consumes 50W of power
 or 1.2 kWh of AC energy daily.  
-Approximately 80\% of this consumption is due to the metering unit.
-This is a significant energy expenditure relative to the amount of energy
-consumed by the customers.
+Approximately 80\% of this consumption is due to these metering units.
+As a result, the electronics that provide the metering functions to the 
+system consume the same amount of electricity per day that the consumers do.
 This consumption can be reduced by the development of metering units with
-lower power consumption.
+lower power consumption, which we believe could operate at 0.25W 
+continuous load.
 If the meter consumption per household is brought to 0.25W, the daily
 use is 6Wh.
 If the same household uses a 5W light bulb for 5 hours each day, the fraction
 of energy spent on metering is 20\%.
+These lighting only customers place a upper bound on the fraction of generation
+necessary for the metering and communications. 
 Thus, this metering may not be cost effective for a household that only
 uses lighting services.
+
+Another aspect of the electronics that influences the economics of the system
+is the lowest amount of power the meter can detect.
+The commercially available meter we use cannot detect a load below 2.0 W.
+An undetected 0.5 W vampire load of a
+cellphone charger can consume 12 Wh in a day, equivalent to over 2 hours
+of LED lighting.  
+If this load is not measured, there
+is no possibility of collecting revenue and we have generation capacity
+that cannot be amortized.  
+
+
 
 \section{Future Work}
 Our work so far has been concerned with the
