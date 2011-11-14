@@ -52,7 +52,7 @@ what a conventional grid extension would offer.
 The microutility in this paper provides power on a
 pre-paid basis similar to the way cellular phone
 air-time is sold.
-This system uses SMS messages sent 
+This system uses SMS messages sent
 over the GSM networks
 for communication allowing installation in any place
 within reach of a GSM tower.
@@ -126,7 +126,7 @@ wealthy.\cite{Jacobson:Connective}
 Solar home system users in Bangladesh report that the costs of financing
 associated with solar home systems are a hardship.\cite{Mondal:SHSBangladesh:2011}
 At a lower price, solar lanterns with rechargeable batteries are available
-and can provide light and cell phone charging but cannot provide 
+and can provide light and cell phone charging but cannot provide
 power for television or other common demands.
 
 % description and prior work
@@ -159,7 +159,7 @@ many rural areas of developing countries, these systems can operate with
 remote supervision and administration.
 With customer billing and monitoring of the system done remotely
 using wireless communications protocols such as SMS, the travel costs
-to the site can be reduced by eliminating routine visits and restricting 
+to the site can be reduced by eliminating routine visits and restricting
 travel to necessary maintenance visits.
 % attractive to investors
 If manufactured at a cost-effective scale, this architecture could make
@@ -174,7 +174,7 @@ By focusing on an approach that aggregates several households together,
 we hope to circumvent the difficulties of end-user finance by creating
 an investment opportunity for an enterprise.
 The selling of excess power from cellular towers is a similar idea to
-this where the capital for energy generation is paid by a cellular 
+this where the capital for energy generation is paid by a cellular
 communications provider and the electricity services are sold to consumers.
 % data collection provides service to energy researchers
 % data collection for research
@@ -226,10 +226,10 @@ This facility consists of a weatherproof structure to protect the
 electronics, solar panels, batteries, a power conditioning unit (PCU),
 and three custom cabinets containing metering and communications
 electronics.
-Figure \ref{ShedWiringDiagram} shows the power flow and voltage levels 
+Figure \ref{ShedWiringDiagram} shows the power flow and voltage levels
 between the generation and
 metering components and the households.
-The DC components of the system are 48V and power is delivered to 
+The DC components of the system are 48V and power is delivered to
 consumers at 230 VAC.
 
 \begin{figure}[]
@@ -244,7 +244,7 @@ through busbars and meters before distribution to the households.}
 \label{ShedWiringDiagram}
 \end{figure}
 
-The central facility is approximately two meters by 
+The central facility is approximately two meters by
 two meters by three meters tall
 with solar panels mounted on the roof.
 Electricity generation is provided by an eight-panel array of 175 W
@@ -263,7 +263,8 @@ batteries.
 This battery bank provides power to the inverter during the nighttime hours.
 The output from the inverter is fed into the first of the three custom
 cabinets.
-The first cabinet is the control enclosure which contains communications hardware and a plug computer.
+The first cabinet is the control enclosure which contains communications
+hardware and a plug computer.
 As shown in Figure \ref{Enclosure}, power enters this control enclosure,
 where it is measured in order to monitor the total power consumption of the
 system.
@@ -286,8 +287,8 @@ Power to each of up to 20 households flows through a commercial metering
 product (Smart Circuit SC20, EED) that communicates via an ethernet
 interface.
 This device measures consumed power and switches the power supply on and off.
-Each metering enclosure has 10 SC20 devices on an ethernet switch, which is connected to another
-ethernet switch in the control enclosure.
+Each metering enclosure has 10 SC20 devices on an ethernet switch, which
+is connected to another ethernet switch in the control enclosure.
 A Linux plug computer, \mbox{(SheevaPlug)} which is connected to the switch,
 runs a custom Python software application to monitor loads, switch
 circuits and communicate with a central server.
@@ -307,7 +308,8 @@ daily energy demanded.
 \includegraphics[width=\columnwidth]{figures/Enclosure.pdf}
 \end{center}
 \caption{Schematic of the power and information flow in the metering hardware cabinets.
-Power flows from the inverter to a main metering circuit.  The power is then distributed
+Power flows from the inverter to a main metering circuit.
+The power is then distributed
 by bus bar to up to 20 individual metering and switching circuits.  Information is collected
 from each of these metering and switching circuits via an ethernet network and is aggregated
 on a plug computer.  The plug computer controls the accounting and communication functions
@@ -341,14 +343,14 @@ network.
 For communication to occur between either the customer and the server
 or between the meter and the server, a communication gateway is needed between
 the GSM network and the internet.
-The gateway can either be provided by the local telecommunications operator
-or by employing custom software in conjunction with a modem.
+The communication gateway can either be provided by the local telecommunications
+operator or by employing custom software in conjunction with a modem.
 In Mali, we initially used the latter to relay messages from SMS
 directly to HTTP before contracting with the local telecom operator to
 create a service that converts SMS messages to Short message
 peer-to-peer (SMPP) messages.
 The local telecommunications operator can provide a system that is
-more reliable than our custom solution by housing it in a 
+more reliable than our custom solution by housing it in a
 location with more robust power and communications.
 A custom server running the Kannel package forwards
 these SMPP messages from the local telecom to our central server over HTTP.
@@ -357,7 +359,7 @@ PostgreSQL database to store information received from customers and
 meters on their power consumption.
 The server also has a web interface (Figure \ref{gateway}) that allows for
 the configuration of consumers' circuits and a visualization of their
-electricity consumption.
+electricity consumption by the electricity provider.
 
 \begin{figure}[]
 \begin{center}
@@ -394,8 +396,8 @@ at which time the household meter automatically turns off its relay.
 
 % consumption
 As energy is consumed, the plug computer reduces the consumer's credit accordingly.
-When the credit level reaches a low setpoint, a message is sent by the 
-meter to the central server, which in turn sends a message to the consumer 
+When the credit level reaches a low setpoint, a message is sent by the
+meter to the central server, which in turn sends a message to the consumer
 warning that her account is low and should be refilled soon.
 % inquiry
 Customers are also able to interact with their accounts to inquire about
@@ -426,10 +428,13 @@ which are often diagnostic requests.
 
 
 \section{Discussion}
-At the time of this writing, we have five systems installed in Mali
-serving about 90 households with pre-paid electricity.
-One of these systems is near a city and four of the systems are in the
+At the time of this writing, we have nine systems installed in Mali
+serving 170 households with pre-paid electricity.
+One of these systems is near a city and eight of the systems are in the
 Tiby Millennium Village.
+The consumers in this area are largely farmers with per person daily
+incomes near the \$1 USD per day mark.
+These households are large, with a mean of 14 members per household.
 This area is well suited for the system since it has
 a plentiful solar resource and though remote, has dense settlement
 patterns that allow for short wire distribution lengths.
@@ -438,19 +443,19 @@ patterns that allow for short wire distribution lengths.
 \subsection{Installation}
 The installation process began with an assessment of a potential site for
 suitability followed by planning and installation.
-Consumers were
-approached about their willingness to pay a connection fee and a service
-fee for electricity.
+Consumers were approached about their willingness to pay a connection
+fee and a service fee for electricity.
 Those customers who agreed to these fees made an initial deposit
 and were connected.
-The connection fee of \$60 USD covers a wire from the central meter location
-to the home, the internal wiring in the home, and two 5 watt LED light bulbs and a
-power outlet.
+The connection fee of \$60 USD is a subsidized fee that covers a wire
+from the central meter location to the home, the internal wiring in the
+home, and two 5 watt LED light bulbs and a power outlet.
 Each customer has a unique wire running from the central meter location to
 the home that is their property and responsibility.
 Wires were primarily run underground in these installations.
-The soft soil made digging trenches for installation more cost-effective than
-installing utility poles.
+The soft soil made digging trenches for installation more cost-effective
+than installing utility poles with the added benefit of increased
+security for the wiring.
 Customers were also provided with a card with their account number.
 They were instructed to save this account number since it would be used
 for electricity purchase transactions.
@@ -534,19 +539,19 @@ We start by looking at a typical consumption pattern for households.
 % walter - why axis lines trends exceptions recap
 To understand the usage patterns of consumers during the day
 we averaged the hourly power consumption reported to our server
-of households over several days. 
+of households over several days.
 Figure \ref{average_power} shows the averaged
-hourly power readings for a single household in Mali 
+hourly power readings for a single household in Mali
 over a period of two weeks.
 In this figure we plot the average power over a one hour period
 on the y-axis and the hour of day from 0--23 on the x-axis.
 The box shows the mean power over the hour and the whiskers indicate
 the standard deviation of the day to day readings.
-The plot shows that most of the power consumed is at night with a 
+The plot shows that most of the power consumed is at night with a
 wattage level that is consistent
 with the use of the 5 watt LED light bulb that we provide.
 During the day however, there is almost no electricity consumption.
-This pattern of primarily daytime use necessitates battery storage 
+This pattern of primarily daytime use necessitates battery storage
 of the photovoltaic energy generated.
 
 \begin{figure}[]
@@ -562,20 +567,20 @@ indicate the standard deviation for the data set.}
 
 % energy histogram section
 % most common usage at 10-15 watthours
-To get a sense of the total daily energy consumption levels in our Mali 
-proof of concept sites, we plot a histogram (Figure \ref{energyHistogram}) 
+To get a sense of the total daily energy consumption levels in our Mali
+proof of concept sites, we plot a histogram (Figure \ref{energyHistogram})
 of the daily energy consumed by customers over a two week period.
-This figure shows number of times a given daily usage is observed in one of 
+This figure shows number of times a given daily usage is observed in one of
 the village sites.
 % only non-zero days shown?
 The x-axis shows the energy consumption and the y-axis displays the number
 of times that energy was observed in any household.
-The histogram shows that the most frequent daily usage is in the range of 
+The histogram shows that the most frequent daily usage is in the range of
 10--15 watt-hours.
 This energy consumption is equivalent to 2--3 hours of use of the 5 watt LED
 light bulbs installed with the system.
-The households that display usage above this level appear own a separate 
-appliance such as a television or radio. 
+The households that display usage above this level appear own a separate
+appliance such as a television or radio.
 %\note{need survey data with id to make this statement}
 
 \begin{figure}[]
@@ -589,11 +594,11 @@ days of where this level of consumption is observed.}
 \label{energyHistogram}
 \end{figure}
 
-With the data received at the server, we can track the monthly amount being 
+With the data received at the server, we can track the monthly amount being
 spent by participating customers.
 Figure \ref{consumptionHistogram} shows the number of customers consuming
 a given amount of credit monthly.
-The x-axis shows the credit consumed in USD while the y-axis shows the 
+The x-axis shows the credit consumed in USD while the y-axis shows the
 number of customers who have spent that amount.
 The most frequent expenditure is from \$1 USD to \$1.5 USD.
 For comparison, customers in the Tiby Cluster Millennium Village spend a
@@ -622,7 +627,7 @@ The histogram in Figure \ref{creditHistogram} plots the number of customer house
 that have a given percentage of time with credit available.
 Over half of the consumers maintain non-zero amounts of credit over 90\% of
 the time.
-While many of the customers were able to maintain credit for much of the 
+While many of the customers were able to maintain credit for much of the
 time, the prepaid model allowed the other customers to consume power only
 when they had the funds available.
 
@@ -666,7 +671,7 @@ the monthly monetary value of electricity consumed in USD is plotted on the x-ax
 \section{Challenges}
 We have identified several areas needing further work in order to have
 a robust and economically viable system.  Problems with communication
-can prevent consumers from replenishing their accounts causing 
+can prevent consumers from replenishing their accounts causing
 an interruption of service and frustration.  Also, excessive
 power consumption by the meter and communication electronics diverts
 electricity from consumers and requires extra generation costs.
@@ -689,30 +694,30 @@ drives.
 For this system of electricity payment to make an impact on electricity
 distribution, the economics must be appropriate.
 
-Metering and communications add to the capital cost of the system.  
-In this proof-of-concept demonstration, we used commercially available 
+Metering and communications add to the capital cost of the system.
+In this proof-of-concept demonstration, we used commercially available
 electronics to provide the prepaid functions at a cost of approximately
 \$250 USD per household.
-This cost includes the meters, relays, modems, computer, and enclosures but 
+This cost includes the meters, relays, modems, computer, and enclosures but
 does not include the power generation, storage, or distribution.
-These generation costs are important, but are common to any efforts at 
+These generation costs are important, but are common to any efforts at
 rural electrification.
 We are developing custom hardware that can be manufactured at a cost
 of \$30 per customer in quantities of 1000.
 Also, this system requires skilled engineers for the server and communications
-maintenance.  
-The additional salary of these individuals must be added to the cost of 
+maintenance.
+The additional salary of these individuals must be added to the cost of
 electricity delivered.
 The last cost unique to this type of delivery system are the scratch cards
 and the data traffic to create a prepaid commerce system.
-Currently we are using custom printed scratch cards and SMS messages 
-purchased at retail costs. 
+Currently we are using custom printed scratch cards and SMS messages
+purchased at retail costs.
 A scalable system would include partnerships with local telecom providers
 to cheap data rates and access to mobile money networks for a commission.
 
 Another challenge is reducing the cost of wires for power distribution.
 In Mali, nucleated settlement patterns make it easier to wire homes but
-other rural areas have longer inter-household distances that make 
+other rural areas have longer inter-household distances that make
 distribution costs important.
 We use a star topology for power distribution where each household has an
 uninterrupted line to the meter.
@@ -733,30 +738,30 @@ the complexity of the system.
 
 % 3.2.3 parasitic consumption and minimum detectable power
 \subsection{Parasitic Consumption}
-Any electricity that is consumed by the metering, communication, and 
-switching components adds to the capital cost for energy generation and 
+Any electricity that is consumed by the metering, communication, and
+switching components adds to the capital cost for energy generation and
 storage.
 We have chosen commercially available components for integration into
-these systems.  
+these systems.
 The metering components are designed for developed markets
-and consume 1.5 W--2.5 W.  
-This power consumption is acceptable in markets where the loads are 
+and consume 1.5 W--2.5 W.
+This power consumption is acceptable in markets where the loads are
 usually on the order of 100 W but are not well suited for the more modest
-energy consumption in these rural areas.  
+energy consumption in these rural areas.
 The off-the-shelf metering and switching electronics consumes 50W of power
-or 1.2 kWh of AC energy daily.  
+or 1.2 kWh of AC energy daily.
 Approximately 80\% of this consumption is due to these metering units.
-As a result, the electronics that provide the metering functions to the 
+As a result, the electronics that provide the metering functions to the
 system consume the same amount of electricity per day that the consumers do.
 This consumption can be reduced by the development of metering units with
-lower power consumption, which we believe could operate at 0.25W 
+lower power consumption, which we believe could operate at 0.25W
 continuous load.
 If the meter consumption per household is brought to 0.25W, the daily
 use is 6Wh.
 If the same household uses a 5W light bulb for 5 hours each day, the fraction
 of energy spent on metering is 20\%.
 These lighting only customers place a upper bound on the fraction of generation
-necessary for the metering and communications. 
+necessary for the metering and communications.
 Thus, this metering may not be cost effective for a household that only
 uses lighting services.
 
@@ -765,10 +770,10 @@ is the lowest amount of power the meter can detect.
 The commercially available meter we use cannot detect a load below 2.0 W.
 An undetected 0.5 W vampire load of a
 cell phone charger can consume 12 Wh in a day, equivalent to over 2 hours
-of LED lighting.  
+of LED lighting.
 If this load is not measured, there
 is no possibility of collecting revenue and we have generation capacity
-that cannot be amortized.  
+that cannot be amortized.
 
 
 
@@ -790,14 +795,14 @@ is being metered and delivered by our
 system.
 It is also possible to adapt this to architecture
 to the provision of other generation technologies like hydropower or
-diesel generation.  
+diesel generation.
 Application to other easily metered and valuable goods
 like purified water is also possible.
-Such a clean water kiosk could enable carefully measured amounts 
+Such a clean water kiosk could enable carefully measured amounts
 of water to be provided in an automated fashion.
 % open monitoring platform
 The open software tools we have developed can also be adopted for
-remote monitoring.  
+remote monitoring.
 This work could be adapted to create server storage of weather stations,
 agricultural monitoring, or other measurements where GSM coverage exists.
 To address the problems of power consumption by the meter,
@@ -808,11 +813,11 @@ and are capable of measuring loads below 1 watt.
 
 \section{Conclusion}
 We have designed and deployed a system that allows for the deployment
-of microutilities in remote areas.  
+of microutilities in remote areas.
 These microutilities can be monitored
-and administered by a central server.  
-Approximately 170 households in Mali and 38 in Uganda are purchasing 
-solar-generated electricity using this prepaid business model. 
+and administered by a central server.
+Approximately 170 households in Mali and 38 in Uganda are purchasing
+solar-generated electricity using this prepaid business model.
 Since communication takes place
 over the GSM networks via SMS messages, these microutilities can be
 deployed anywhere that GSM coverage exists.
