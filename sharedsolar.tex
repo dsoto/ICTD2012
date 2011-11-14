@@ -339,7 +339,7 @@ The central server communicates with customer cell phones and the
 local meters using HTTP and SMS messaging over the GSM
 network.
 For communication to occur between either the customer and the server
-or between the meter and the server, a gateway is needed between
+or between the meter and the server, a communication gateway is needed between
 the GSM network and the internet.
 The gateway can either be provided by the local telecommunications operator
 or by employing custom software in conjunction with a modem.
@@ -382,26 +382,27 @@ amounts as low as \$1 USD  and as high as \$4 USD.
 The cards contain instructions on how to recharge the buyer's account
 and a concealed authorization code.
 The customer enters the revealed code into his mobile phone and sends it by
-SMS to the central gateway server for validation.
-Once validated, the gateway server sends a message to the local meter
+SMS to the central server for validation.
+Once validated, the central server sends a message to the local meter
 instructing it to add the scratch card's credit amount to the
 customer's account.
-The meter sends an acknowledgment back to the gateway that credit has
-been added, and the gateway in turn notifies the customer by SMS that
+The meter sends an acknowledgment back to the central server that credit has
+been added, and the central server in turn notifies the customer by SMS that
 the transaction has been successful.
 The consumer can then access electricity until her credit is exhausted,
 at which time the household meter automatically turns off its relay.
 
 % consumption
 As energy is consumed, the plug computer reduces the consumer's credit accordingly.
-When the credit level reaches a low setpoint, a message is sent to the
-gateway server, which in turn sends a message to the consumer warning that her account is low and should be refilled soon.
+When the credit level reaches a low setpoint, a message is sent by the 
+meter to the central server, which in turn sends a message to the consumer 
+warning that her account is low and should be refilled soon.
 % inquiry
 Customers are also able to interact with their accounts to inquire about
 their balance via SMS.
 The customer sends a text message to the server, which responds back
 with a message containing her credit balance.
-She can also send a message to the gateway requesting that the household's
+She can also send a message to the central server requesting that the household's
 connection be turned on or off.
 This allows the customer to protect against unauthorized power use
 during an absence.
@@ -409,7 +410,7 @@ during an absence.
 % meter initiated
 The system is programmed to collect and store information about customer
 electricity consumption on the central server.
-Hourly, a message is sent from the central server to the gateway
+Hourly, a message is sent from the meter to the central server
 containing information on each household's accumulated daily energy
 usage.
 The meter can also send data regarding photovoltaic energy production
@@ -420,7 +421,7 @@ circuit that is using more electricity than the system is designed for.
 The meter software can turn off electricity to the household if the consumer's
 power or daily energy is over an agreed maximum.
 % gateway initiated
-The meter also listens for incoming SMS messages from the gateway,
+The meter also listens for incoming SMS messages from the central server,
 which are often diagnostic requests.
 
 
